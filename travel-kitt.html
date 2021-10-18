@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+
+    <title>Jadon Kam's Portfolio</title>
+    <body>
+    <div class="black-background">
+        <header>
+            <h1 class="logo" style="font-size: 28px;"><a href="index.html">Jadon Kam</a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="ux.html">UX Design</a>
+                            <ul class="dropdown">
+                                <li class ="active"><a href="travel-kitt.html">Travel Kitt</a></li>
+                                <li><a href="enflyerment.html">Enflyerment</a></li>
+                                <li><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="artwork.html">Artwork</a>
+                            <ul class="dropdown">
+                                <li><a href="nvidia.html">NVIDIA Mascot Design</a></li>
+                                <li><a href="poster.html">Laurier UX Design Program Poster</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About Me</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </header>
+<br/>
+<br/>
+<div class="container">
+    <img src="img/Blue Right.png" alt="Travel Kitt museum background" class="banner-img">
+    <a href=travel-kitt.html>
+        <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
+            <source src="travel-kitt/home.mp4" type="video/mp4" alt="Travel Kitt video demo">
+            Your browser does not support the video tag.
+        </video>
+    </a>
+    <div class="right-date">UX Design: May 2021</div>
+    <div class="right-title">Travel Kitt</div>
+    <div class="right-question">How might we turn the time families<br/>spend on a plane ride into an opportunity<br/>for them to plan and learn about their <br/>vacation destinations together?
+    </div>
+</div>
+</div>
+    </body>
+    <div class="text">
+        <br/>
+        <div class="boxed-intro"> 
+            <p><b>My Role: </b>All stages of the project</p>
+            <p><b>Timeline: </b>9 days (May 19, 2021 to May 28, 2021)</p>
+            <p><b>Topic: </b>Tourism and Education</p>
+        </div>
+        <br/>
+        <br/>
+        <h1>The Problem:</h1>
+        <p>When you ride a plane, how often do you read the in-flight magazines? I’ll take a look at them once in a while especially during flights that don’t have movies and TV shows to watch; however, the content in these magazines are not always interesting or related to the destination of my flight, which causes me to skim and skip many pages.</p>
+        <p>In a design challenge by <a href="https://www.creativejam.in/swabrief" target="_blank">Adobe and Southwest Airlines</a>, my teammate and I were challenged to <b>design a travel guide tablet app for plane passengers as a substitution for in-flight magazines</b>. They wanted this app to help passengers use their time on plane flights to <b>learn more about their specific travel destination</b> and for the app to <b>provide a more personalized experience</b>.</p>
+        <p>My teammate and I decided to <b>focus on families with children as our app’s target users</b> because from our experience when we were children, our parents did most of the planning and learning for trips since many travel guides are aimed at adults. Plus, children can get bored easily on long flights and the in-flight magazines likely will not interest them, so we saw a great opportunity for our app to entertain them during these flights. </p>
+        <br/>
+        <div class="boxed"> 
+    <h1>Our Goal</h1>
+    <p>How might we turn the time families spend on a plane ride into an opportunity for them to plan and learn about their vacation destinations together?</p>
+    <p>Learning about their vacation destination would include learning about places they could visit, basic language, and cultural practices.</p>
+</div>
+</br>
+<br/>
+<h1>Research</h1>
+<p id="points-intro">First, it was important for us to see if other families faced the same problems or if this was just the experience for my teammate and I. Through user interviews, we confirmed that having families with children as our target users was the direction that we wanted to follow. The following points are two important thoughts that we learned from our users:<br/>
+    <ul class="points">
+        <li>We learned that parents are not opposed to having their child plan their vacation. However, they don’t ask their children to plan it as they assume they won’t have much input or suggestions.</li>
+        <li>When asked what activities they wished were available as in-flight entertainment, some parents answered they wish there were more activities they could do together with their child.</li></ul>
+</p>
+        <p id="points-intro">From our user interviews, we gained 4 insights that helped guide us as we moved on to the ideation phase.</p>
+    <ul class="points">
+        <li>People thought that difficult experiences that happen because of a language barrier were often related to ordering food.</li>
+        <li>When picking places to go on their trip, many people relied on top tourist attraction lists that showed popular places people liked to visit. Considering whether or not these places were family-friendly places was important.</li>
+        <li>Figuring out how much they will spend on their trip is important</li>
+        <li>People thought that games and visuals helped them with learning in the past</li></ul></p>
+        <br/>
+<div class="boxed"> 
+<h1>Ideation</h1>
+<p>Based on our research insights, we wanted our app to include<br/>
+    <ol class="points">
+    <li>Something that could help users with food vocabulary<br/></li>
+    <li>A list of popular and family-friendly tourist attractions<br/></li>
+    <li>Something to help users calculate the cost of how much they would spend<br/></li>
+    <li>Games and visuals to help with learning</li>
+    </ol></p>
+</div>
+<br/>
+<br/>
+<h1>The Solution: Travel Kitt!</h1>
+<p>Travel Kitt provides all the essentials families will need to plan their vacations! </p>
+<h2>Stage 1: Tickets!</h2>
+<p>Users will start by entering their travel information so that the app can personalize the information and the cost of activities based on the number of people.</p>
+<img src="travel-kitt/ticket.png" alt="Plan Your Trip page" class="persona">
+<br/>
+<br/>
+<h2>Stage 2: The Travel Book</h2>
+<p>The app will then create a book for the trip; each trip gets its own book. In the book, users can create an itinerary, read information about their destination, and save pictures to the scrapbook pages. Families can learn about their destination with the help of a friendly kitten avatar that acts as a their tour guide. Through fun dialogue, the kitten helps engage children while it recommends tourist attractions, teaches about language and culture, appears in scrapbook memories, and much more. The book created for each trip is saved to a library in the app which users can view at the app’s starting page. This allows them to easily view past vacation scrapbook pages and remember the great times they had in past vacations. </p>
+    <figure>
+        <figcaption>Using the App</figcaption>
+        <video controls autoplay loop muted class="one-small-video">
+            <source src="travel-kitt/Demo1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </figure>
+<br/>
+    <figure>
+        <figcaption>Viewing Previous Trips/Scrapbooks</figcaption><br/>
+        <video controls autoplay loop muted class="one-small-video">
+            <source src="travel-kitt/Scrapbooks.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </figure>
+    <br/>
+<br/>
+<p id="points-intro">Based on the feedback from our research, we also included the following features which can be found in each travel book:
+<ol class="points">
+    <li>A food section to help users with food vocabulary</li>
+    <li>A list of popular and family-friendly tourist attractions presented as a travel brochure (this looks more appealing to kids compared to a written list of recommendations)</li>
+    <li>A total sum column in the itinerary to help users calculate the cost of how much they would spend</li>
+    <li>Games to practice vocabulary and learn more about their destination and emojis in the paragraphs since users said that visuals helped them with learning</li></p>
+</ol>
+    <figure>
+        <figcaption>A demo showing these 4 features</figcaption>
+        <video controls autoplay loop muted class="one-small-video">
+            <source src="travel-kitt/Demo 2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </figure>
+<br/>
+<br/>
+<p>Through user testing, we gained positive feedback about the concept and look of our app. We saw some struggles with navigating between some of the screens so we changed the location of some buttons to improve the flow of the app. </p>
+<p>And that’s Travel Kitt! Just like how one packs all their travel essentials into their travel kit, we made sure to pack the planning and learning essentials that we learned about from our user research into our app to provide families a helpful and engaging source of information that they can use on the plane. You can view our app’s prototype by clicking the button below. Enjoy!</p>
+<div class="side-by-side">
+    <a class="previous-button" href="https://xd.adobe.com/view/0ba8986d-1529-4f01-a28d-ce500366aaad-5efb/?fullscreen" target="_blank" style="text-align: center;">View Travel Kitt Prototype</a>
+</div>
+<br/>
+<br/>
+<div class="boxed-end" style="background-color: #d5eee8; width:70%">
+<p style="width: 90%; margin-left: auto; margin-right: auto;">To continue looking at my work, you can go back to the UX Design projects page or click the button below to see the project I worked on before Travel Kitt. Thank you for looking at my work!</p><br/>
+    <div class="side-by-side">
+    <a class="previous-button" href="enflyerment.html">View My Previous UX Project:<br/>Enflyerment</a>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+</div>
+</html>

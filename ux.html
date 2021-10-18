@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+
+    <title>Jadon Kam's Portfolio</title>
+    <body>
+    <div class="black-background">
+        <header>
+            <h1 class="logo" style="font-size: 28px;"><a href="index.html">Jadon Kam</a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class ="active">
+                        <a href="ux.html">UX Design</a>
+                            <ul class="dropdown">
+                                <li><a href="travel-kitt.html" style="color: white;">Travel Kitt</a></li>
+                                <li><a href="enflyerment.html" style="color: white;">Enflyerment</a></li>
+                                <li><a href="kiosk.html" style="color: white;">Brantford Interactive Kiosk</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="artwork.html">Artwork</a>
+                            <ul class="dropdown">
+                                <li><a href="nvidia.html">NVIDIA Mascot Design</a></li>
+                                <li><a href="poster.html">Laurier UX Design Program Poster</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About Me</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </header>
+<br/>
+<br/>
+    <div class="container">
+        <img src="img/Blue Right.png" alt="Travel Kitt museum background" class="banner-img">
+        <a href=travel-kitt.html>
+            <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
+                <source src="travel-kitt/home.mp4" type="video/mp4" alt="Travel Kitt video demo">
+                Your browser does not support the video tag.
+            </video>
+        </a>
+        <div class="right-date">UX Design: May 2021</div>
+        <div class="right-title">Travel Kitt</div>
+        <div class="right-description">Helping families to plan and learn<br/>about their travel destinations</div>
+        <a href=travel-kitt.html class="right-button">View Project</a></button>
+    </div>
+    <div class="container">
+        <img src="img/Yellow Left.png" alt="Kiosk museum background" class="banner-img">
+        <a href=kiosk.html><img src="img/Kiosk.png" class="thumbnail-right" style='border: 1vw solid #b48a4a'></a>
+        <div class="left-date" id="black-text">UX Design:<br/> Winter/Spring 2021</div>
+        <div class="left-title" id="black-text">Brantford<br/>Interactive Kiosk</div>
+        <div class="left-description" id="black-text">Connecting the Brantford public to learn<br/>about Brantford's businesses and buses</div>
+        <a href=kiosk.html class="left-button">View Project</a>
+    </div>
+    <div class="container">
+        <img src="img/Green Right.png" alt="Enflyerment museum background" class="banner-img">
+        <a href=enflyerment.html>
+            <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
+                <source src="enflyerment/New-Layout.mp4" type="video/mp4" alt="Home page with new layout">
+                Your browser does not support the video tag.
+            </video>
+        </a> 
+        <div class="right-date">UX Design: May 2021</div>
+        <div class="right-title">Enflyerment</div>
+        <div class="right-description">A resource that helps you reduce your<br/>carbon footprint and your grocery bills</div>
+        <a href=enflyerment.html class="right-button">View Project</a>
+    </div>
+
+    </body>
+</html>

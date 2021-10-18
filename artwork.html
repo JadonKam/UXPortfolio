@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+
+    <title>Jadon Kam's Portfolio</title>
+    <body>
+    <div class="black-background">
+        <header>
+            <h1 class="logo" style="font-size: 28px;"><a href="index.html">Jadon Kam</a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="ux.html">UX Design</a>
+                            <ul class="dropdown">
+                                <li><a href="travel-kitt.html">Travel Kitt</a></li>
+                                <li><a href="enflyerment.html">Enflyerment</a></li>
+                                <li><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
+                            </ul>
+                    </li>
+                    <li class ="active">
+                        <a href="artwork.html">Artwork</a>
+                            <ul class="dropdown">
+                                <li><a href="nvidia.html" style="color: white;">NVIDIA Mascot Design</a></li>
+                                <li><a href="poster.html" style="color: white;">Laurier UX Design Program Poster</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About Me</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </header>
+<br/>
+<br/>
+    <div class="container">
+        <img src="img/Yellow Left.png" alt="NVIDIA museum background" class="banner-img">
+        <a href=nvidia.html><img src="img/NVIDIA Mascot.png" class="thumbnail-right" style='border: 1vw solid #b48a4a; top:12%'></a>
+        <div class="left-date" id="black-text">Digital Art:<br/>May 2021</div>
+        <div class="left-title" id="black-text">NVIDIA<br/>Mascot Design</div>
+        <div class="left-description" id="black-text">My design which won 1st place<br/>in a competition from NVIDIA and Dribbble</div>
+        <a href=nvidia.html class="left-button">View Project</a>
+    </div>
+    <div class="container">
+        <img src="img/Blue Right 2.png" alt="Poster museum background" class="banner-img">
+        <a href=travel-kitt.html>
+            <img src="img/Poster.png" class="thumbnail-poster" style='border: 0.75vw solid #b48a4a'>
+        </a>
+        <div class="right-date" style="top:40%">Graphic Design: April 2021</div>
+        <div class="right-title" style="font-size: 4vw; top:47%">Laurier UX<br/>Program Poster</div>
+        <div class="right-description">A poster I designed to promote<br/>Laurier's UX Design program</div>
+        <a href=travel-kitt.html class="right-button">View Project</a></button>
+    </div>
+    </body>
+</html>

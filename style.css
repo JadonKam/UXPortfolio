@@ -188,6 +188,18 @@ nav a:hover{
     margin-left: 5px;
     margin-right: 5px;
 }
+.sketch{
+    width:90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.phone{
+    width:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .small-video{
     height: 35vw;
     max-height: 100%;
@@ -485,6 +497,18 @@ figcaption{
         margin-left: 5px;
         margin-right: 5px;
     }
+    .sketch{
+        width:60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .phone{
+        width:30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .small-video{
         height: 35vw;
         max-height: 100%;
@@ -652,4 +676,14 @@ form button{
     border-radius: 10px;
     border:none;
     width: 100px;
+}
+mark{
+    background-color: rgb(252, 244, 200);
+}
+.yellow{
+    color: rgb(250, 215, 120);
+}
+.green{
+    color: rgb(8, 109, 62);
+    font-weight: bold;
 }

@@ -24,7 +24,7 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="ux.html">UX Design</a>
+                        <span class="active"><a href="ux.html">UX Design</a></span>
                             <ul class="dropdown">
                                 <li><a href="travel-kitt.html">Travel Kitt</a></li>
                                 <li class ="active"><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
@@ -53,12 +53,16 @@
 <br/>
 <br/>
 <div class="container">
-    <img src="img/Yellow Left 2.png" alt="Kiosk museum background" class="banner-img">
+    <picture>
+        <source media="(min-width: 710px)" srcset="/img/YellowLeft2.png" alt="Yellow background" class="banner-img">
+        <source media="(min-width: 10px)" srcset="/img/Yellow Mobile.png">
+        <img src="img/Yellow Mobile.png" alt="Yellow Background" class="banner-img">
+    </picture>
     <a href=kiosk.html><img src="img/Kiosk.png" class="thumbnail-right" style='border: 1vw solid #b48a4a'></a>
     <div class="left-date" id="black-text">UX Design:<br/> Winter/Spring 2021</div>
-    <div class="left-title" id="black-text">Brantford<br/>Interactive Kiosk</div>
-    <div class="left-question">How might we bring <span class="green">awareness<br/>to Brantford businesses</span> and improve<br/>the experience of <span class="green">finding what bus to take</span>?
-    </div>
+    <div class="left-title" id="kiosk-text">Brantford<br/>Interactive Kiosk</div>
+    <img src="img/BluePerson.png" class="right-person" alt="a blue character smiling and looking at the kiosk">
+    <div class="left-question" id="black-text">How might we bring <span class="green">awareness to Brantford businesses</span> and improve the experience of <span class="green">finding what bus to take</span>?</div>
 </div>
 </div>
     <div class="text">
@@ -107,7 +111,7 @@
         <li>Some express that this is because the <mark>information is difficult to find</mark>, especially without access to a computer.</li>
         <li>The majority of them rely on <mark>Brantford’s website and map apps</mark> to learn about transit.</li>
     </ul></p> 
-    <img src="kiosk/Research.png" alt="Research from our interviews" class="persona">
+    <img src="kiosk/Research.png" alt="Research data from our interviews" class="persona">
     <br/>
 <div class="boxed" style="background-color: #faeec7;">
 <h1>Ideation</h1>
@@ -132,12 +136,12 @@
 
 <h1>Another Problem: COVID-19</h1>
 <p>However, because of the COVID-19 pandemic, we <mark>had to consider sanitation and concerns about the spread of COVID-19 through touch,</mark> so we created a kiosk which could minimize the amount of users who touch the screen. Our kiosk design features <mark>foot buttons and an automatic sanitizer mist</mark> to address this problem.</p>
+<div class="side-by-side">
+    <img src="img/Kiosk.png" class="small-img" alt="a user using the foot buttons of our interactive kiosk design">
+</div><br/>
 <p>For the foot buttons, users can interact with the design in a hands-free method by using the physical buttons located at the bottom of the design, decreasing the need for one’s hands to touch the screen. Originally, we had the buttons on the ground in front of the screen (where the person is standing in the prototype), but we <mark>decided to move them to underneath the screen</mark> so that it would not block wheelchair users from using the kiosk. There is also an <mark>accessibility mode to lower the display</mark> so that wheelchair users and people who cannot reach very high can have an easier time using the kiosk. The kiosk also features voice assistance which can read text out loud to increase accessibility.</p>
 <p>Even without concerns about spreading COVID-19, the foot buttons are beneficial. For example, if it is winter and you are wearing gloves, you do not need to take off your gloves to use the kiosk. If you just finished grocery shopping and want to figure out what bus to take but you have grocery bags in both hands, the kiosk’s foot buttons will be extremely helpful as well. </p>
 <p>For the automatic sanitizer mist, when the screen <mark>has not been interacted with during a period of time,</mark> there will be a visual and audio countdown to indicate that the screen will be sanitized. However, if it is too difficult to implement this feature, it can be removed. Instead, the screen can be cleaned physically every once in a while. </p>
-<div class="side-by-side">
-    <img src="img/Kiosk.png" class="small-img">
-</div>
 <br/>
 <p>The following video, recorded by my group member Mimi Pham, shows what the interface would look like when a user interacts with the screen and the many different features of the kiosk: </p>
 <div class="side-by-side">

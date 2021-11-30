@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="./style.css">
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     </head>
 
@@ -24,7 +24,7 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="ux.html">UX Design</a>
+                        <span class="active"><a href="ux.html">UX Design</a></span>
                             <ul class="dropdown">
                                 <li><a href="travel-kitt.html">Travel Kitt</a></li>
                                 <li><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
@@ -53,17 +53,21 @@
 <br/>
 <br/>
 <div class="container">
-    <img src="img/Green Right.png" alt="Enflyerment museum background" class="banner-img">
+    <picture>
+        <source media="(min-width: 710px)" srcset="/img/GreenRight.png" alt="Green background" class="banner-img">
+        <source media="(min-width: 10px)" srcset="/img/Green Mobile.png">
+        <img src="img/Green Mobile.png" alt="Green Background" class="banner-img">
+    </picture>
     <a href=enflyerment.html>
         <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
-            <source src="enflyerment/New-Layout.mp4" type="video/mp4" alt="Home page with new layout">
+            <source src="enflyerment/New-Layout.mp4" type="video/mp4" alt="A screen recording of the Enflyerment Home page">
             Your browser does not support the video tag.
         </video>
     </a> 
-    <div class="right-date">UX Design: May 2021</div>
+    <div class="right-date">UX Design: March 2021</div>
     <div class="right-title">Enflyerment</div>
-    <div class="right-question">How might I motivate users to <span class="yellow">lower<br/>their carbon footprint</span> through shifting their<br/>behaviour towards <span class="yellow">eating a plant-based diet</span>?
-    </div>
+    <div class="right-question">How might I motivate users to <span class="yellow">lower<br/> their carbon footprint</span> through shifting their<br/> behaviour towards <span class="yellow">eating a plant-based diet</span>?</div>
+    <img src="enflyerment/Person.png" class="middle-person" alt="a yellow character carrying a bag of groceries and walking down the stairs">
 </div>
 </div>
     <div class="text">
@@ -136,7 +140,7 @@
     <figure>
         <figcaption>The Recipes Page</figcaption>
         <video controls autoplay loop muted class="large-video">
-            <source src="enflyerment/Recipes.mp4" type="video/mp4">
+            <source src="enflyerment/Recipes.mp4" alt="a screen recording showing what the recipes page looks like" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </figure>
@@ -144,6 +148,14 @@
 <div class=text>
 <br/>
 <p>From there, you can find pages to learn more about the environment, popular recipes, plant-based alternatives, and nutrition. Many of the resources on the nutrition pages were recommended from the vegans that I contacted through my research. </p>
+    <figure>
+        <figcaption>The Nutrition Page</figcaption>
+        <video controls autoplay loop muted class="persona">
+            <source src="enflyerment/Nutrition.mov" alt="a screen recording showing what the Nutrition pages looks like" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </figure>
+    <br/>
 <p>Finally, is the online community. There is a link to a discord community on my website where people can share their questions, photos of food they made, etc. with one another. Members in the community could also share recipe ideas to inspire each other and if they are willing, for Enflyerment to use in the grocery flyer posters so that even more partnerships with grocery stores can be created.</p>
 <h1>User Testing</h1>
 <p>I tested my website and one of the main feedback I got was the website lacked a hierarchy on the home page. The grocery flyer recipes were blended in with the other information so I made changes to make it more prominent. Now, there are grocery store logos that link to the recipe pages for those specific stores to help users navigate my website more easily and to make these partnerships more clear.</p>

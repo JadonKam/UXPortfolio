@@ -24,9 +24,9 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="ux.html">UX Design</a>
+                        <span class="active"><a href="ux.html">UX Design</a></span>
                             <ul class="dropdown">
-                                <li class ="active"><a href="travel-kitt.html">Travel Kitt</a></li>
+                                <li class="active"><a href="travel-kitt.html">Travel Kitt</a></li>
                                 <li><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
                                 <li><a href="enflyerment.html">Enflyerment</a></li>
                             </ul>
@@ -53,17 +53,21 @@
 <br/>
 <br/>
 <div class="container">
-    <img src="img/Blue Right.png" alt="Travel Kitt museum background" class="banner-img">
+    <picture>
+        <source media="(min-width: 710px)" srcset="/img/BlueRight.png" alt="Blue background" class="banner-img">
+        <source media="(min-width: 10px)" srcset="/img/Blue Mobile.png">
+        <img src="img/Blue Mobile.png" alt="Blue Background" class="banner-img">
+    </picture>
     <a href=travel-kitt.html>
         <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
-            <source src="travel-kitt/home.mp4" type="video/mp4" alt="Travel Kitt video demo">
+            <source src="travel-kitt/home.mp4" type="video/mp4" alt="a screen recording of a user using Travel Kitt">
             Your browser does not support the video tag.
         </video>
     </a>
     <div class="right-date">UX Design: May 2021</div>
     <div class="right-title">Travel Kitt</div>
-    <div class="right-question">How might we turn the time <span class=yellow>families</span><br/>spend <span class=yellow>on a plane ride</span> into an opportunity<br/>for them to <span class=yellow>plan</span> and <span class=yellow>learn</span> about their <br/><span class=yellow>vacation destinations</span> together?
-    </div>
+    <div class="right-question">How might we turn the time <span class=yellow>families</span><br/> spend <span class=yellow>on a plane ride</span> into an opportunity<br/> for them to <span class=yellow>plan</span> and <span class=yellow>learn</span> about their <br/><span class=yellow>vacation destinations</span> together?</div>
+    <img src="travel-kitt/Person.png" class="left-person" alt="A yellow character with a suitcase">
 </div>
 </div>
     </body>
@@ -127,7 +131,7 @@
     <figure>
         <figcaption>Using the App</figcaption>
         <video controls autoplay loop muted class="one-small-video">
-            <source src="travel-kitt/Demo1.mp4" type="video/mp4">
+            <source src="travel-kitt/Demo1.mp4" type="video/mp4" alt="a screen recording showing a user using the app">
             Your browser does not support the video tag.
         </video>
     </figure>
@@ -135,7 +139,7 @@
     <figure>
         <figcaption>Viewing Previous Trips/Scrapbooks</figcaption><br/>
         <video controls autoplay loop muted class="one-small-video">
-            <source src="travel-kitt/Scrapbooks.mp4" type="video/mp4">
+            <source src="travel-kitt/Scrapbooks.mp4" type="video/mp4" alt="a screen recording showing the previous trips pages and scrapbooks">
             Your browser does not support the video tag.
         </video>
     </figure>
@@ -151,7 +155,7 @@
     <figure>
         <figcaption>A demo showing these 4 features</figcaption>
         <video controls autoplay loop muted class="one-small-video">
-            <source src="travel-kitt/Demo 2.mp4" type="video/mp4">
+            <source src="travel-kitt/Demo 2.mp4" type="video/mp4" alt="a screen recording showing the 4 features we learned we needed from our user research">
             Your browser does not support the video tag.
         </video>
     </figure>

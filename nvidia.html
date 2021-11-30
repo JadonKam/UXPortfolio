@@ -32,7 +32,7 @@
                             </ul>
                     </li>
                     <li>
-                        <a href="artwork.html">Artwork</a>
+                        <span class="active"><a href="artwork.html">Artwork</a></span>
                             <ul class="dropdown">
                                 <li class ="active"><a href="nvidia.html">NVIDIA Mascot Design</a></li>
                                 <li><a href="poster.html">Laurier UX Design Program Poster</a></li>
@@ -52,14 +52,19 @@
         </header>
 <br/>
 <br/>
-    <div class="container">
-        <img src="img/Yellow Left.png" alt="NVIDIA museum background" class="banner-img">
-        <a href=nvidia.html><img src="img/NVIDIA Mascot.png" class="thumbnail-right" style='border: 1vw solid #b48a4a; top:12%'></a>
-        <div class="left-date" id="black-text">Digital Art:<br/>May 11-17, 2021</div>
-        <div class="left-title" id="black-text">NVIDIA<br/>Mascot Design</div>
-        <div class="left-details" id="black-text">My winning submission for a challenge<br/>from NVIDIA Studio and Dribbble to <span class="green">redesign<br/>NVIDIA's mascot</span>: “a mythical creature with<br/>four massive, rabbit-like ears”</div>
+<div class="container">
+    <picture>
+        <source media="(min-width: 710px)" srcset="/img/YellowLeft.png" alt="Yellow background" class="banner-img">
+        <source media="(min-width: 10px)" srcset="/img/Yellow Mobile.png">
+        <img src="img/Yellow Mobile.png" alt="Yellow Background" class="banner-img">
+    </picture>
+    <a href=nvidia.html><img src="img/NVIDIA Mascot.png" alt="my mascot design" class="thumbnail-right" style='border: 1vw solid #b48a4a; top:12%'></a>
+    <div class="left-date" id="black-text">Digital Art:<br/>May 2021</div>
+    <div class="left-title" id="black-text">NVIDIA<br/>Mascot Design</div>
+    <div class="left-details" id="black-text">My winning submission for a challenge from NVIDIA Studio and Dribbble to <span class="green">redesign NVIDIA's mascot</span>: “a mythical creature with four massive, rabbit-like ears”</div>
+    <img src="img/Painter.png" class="right-person" alt="A green character with a paintbrush">
     </div>
-    </div>
+</div>
     <div class="text">
         <br/>
     <h1>The Challenge</h1>

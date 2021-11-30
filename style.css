@@ -151,14 +151,14 @@ nav a:hover{
 .thumbnail-left{
     position: absolute;
     top: 15%;
-    width: 35%;
+    width: 53%;
     left: 4%;
 }
 .thumbnail-poster{
     position: absolute;
-    top: 13%;
-    width: 21.5%;
-    left: 12%;
+    top: 6%;
+    width: 40%;
+    left: 5%;
 }
 .thumbnail-left:hover, .thumbnail-right:hover, .thumbnail-poster:hover{
     opacity: 70%;
@@ -167,16 +167,17 @@ nav a:hover{
 .thumbnail-right{
     position: absolute;
     top: 15%;
-    width: 35%;
+    width: 52%;
     right: 4%;
 }
 
-.persona{
+.persona, .poster{
     width:100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 .side-by-side{
     display: flex;
     justify-content: center;
@@ -301,87 +302,178 @@ figcaption{
     color: white;
     font-size: 6vw;
   }
+.left-title {
+    position: absolute;
+    top: 21%;
+    left: 4%;
+    color: white;
+    font-size: 7vw;
+    text-align: left;
+    line-height: 1.1em;
+  }
+.left-description {
+    position: absolute;
+    top: 39%;
+    left: 4%;
+    width: 40%;
+    color: white;
+    font-size: 3vw;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+  }
+.left-date {
+    position: absolute;
+    top: 10%;
+    left: 4%;
+    color: white;
+    font-size: 3vw;
+    text-align: left;
+  }
+
+.left-details {
+    position: absolute;
+    top: 40%;
+    left: 4%;
+    width: 35%;
+    font-size: 2.5vw;
+    text-align: left;
+    line-height: 4vw;
+    font-family: 'Roboto', sans-serif;
+  }
+  .left-question {
+    position: absolute;
+    top: 40%;
+    left: 4%;
+    width: 35%;
+    color: white;
+    font-size: 2.75vw;
+    text-align: left;
+    line-height: 4vw;
+    font-family: 'Roboto', sans-serif;
+  }
+  .left-question br, .left-details br{
+      display: none;
+  }
+
+.left-button{
+    position: absolute;
+    top: 56%;
+    left: 4%;
+    color: black;
+    background-color:rgb(250, 228, 169);
+    font-size: 5vw;
+    border-radius: 10px;
+    border:none;
+    width: 30vw;
+  }
 
 /* Center text */
 .center-text {
     position: absolute;
-    top: 33%;
+    top: 28.5%;
     left: 49.5%;
     transform: translate(-50%, -50%);
     color: black;
-    font-size: 2.8vw;
+    font-size: 5vw;
     text-align:left;
   }
 /* Right text */
-.right-title {
+.right-title, .right-title2 {
     position: absolute;
-    top: 52%;
+    top: 20%;
     right: 4%;
     color: white;
-    font-size: 6vw;
+    font-size: 8vw;
     text-align: right;
     line-height: 1.1em;
   }
 .right-description {
     position: absolute;
-    top: 68%;
+    top: 32%;
     right: 4%;
+    width: 30%;
     color: white;
-    font-size: 1.8vw;
+    font-size: 3vw;
     text-align: right;
     font-family: 'Roboto', sans-serif;
   }
-.right-date {
+  .right-description2 {
     position: absolute;
-    bottom: 49%;
+    top: 42%; 
+    width: 45%;
     right: 4%;
     color: white;
-    font-size: 1.9vw;
+    font-size: 3vw;
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+  }
+.right-date, .right-date2 {
+    position: absolute;
+    top: 15%;
+    right: 4%;
+    color: white;
+    font-size: 3vw;
     text-align: right;
   }
   .right-details {
     position: absolute;
-    top: 70%;
+    top: 43%;
     right: 4%;
     color: white;
-    font-size: 1.5vw;
+    width: 35%;
+    font-size: 2.5vw;
     text-align: right;
-    line-height: 1.4vw;
+    line-height: 4vw;
     font-family: 'Roboto', sans-serif;
   }
   .right-question {
     position: absolute;
-    top: 68%;
+    top: 33%;
     right: 4%;
+    width: 35%;
     color: white;
-    font-size: 1.6vw;
+    font-size: 2.75vw;
     text-align: right;
-    line-height: 2.3vw;
+    line-height: 4vw;
     font-family: 'Roboto', sans-serif;
+  }
+  .right-question br{
+      display: none;
+  }
+  .right-button{
+    position: absolute;
+    top: 54%;
+    right: 4%;
+    color: black;
+    background-color:rgb(250, 228, 169);
+    font-size: 5vw;
+    border-radius: 10px;
+    border:none;
+    width: 30vw;
   }
 
 .ux-button{
     position: absolute;
-    top: 11%;
+    top: 75%;
     left: 8.5%;
     color: black;
     background-color:rgb(250, 228, 169);
-    font-size: 2.5vw;
+    font-size: 4.5vw;
     border-radius: 10px;
     border:none;
-    width: 20vw;
+    width: 35vw;
   }
 
 .art-button{
     position: absolute;
-    top: 11%;
-    left: 73%;
+    top: 75%;
+    right: 8.5%;
     color: black;
     background-color:rgb(250, 228, 169);
-    font-size: 2.5vw;
+    font-size: 4.5vw;
     border-radius: 10px;
     border:none;
-    width: 20vw;
+    width: 35vw;
   }
 .ux-button:hover,.art-button:hover{
     color: rgb(255, 255, 255);
@@ -413,8 +505,40 @@ figcaption{
     color: rgb(255, 255, 255);
     background-color:rgb(13, 73, 45);
 }
+#black-text{
+    color: rgb(51, 51, 51);
+}
+#kiosk-text{
+    color: rgb(51, 51, 51);
+    font-size: 6.1vw;
+    top: 22%;
+} 
+.left-person{
+    z-index: 90;
+    width: 30%;
+    position: absolute;
+    top: 55%;
+    left: 3%;
+}
+.middle-person{
+    z-index: 90;
+    width: 20%;
+    position: absolute;
+    top: 51%;
+    left: 43%;
+}
+.right-person, .mobile-only{
+    z-index: 90;
+    width: 28%;
+    position: absolute;
+    top: 53%;
+    right: 0%;
+}
+.about-me{
+    line-height: 35px;
+}
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 710px){
     .nav-toggle-label{
         display: none;
     }
@@ -459,6 +583,15 @@ figcaption{
       nav a:hover::before {
         transform: scale(1,1);
       }
+      .center-text {
+        position: absolute;
+        top: 34%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+        font-size: 2.8vw;
+        text-align:left;
+      }
       .dropdown{
         display: block;
         text-align: left;
@@ -486,6 +619,13 @@ figcaption{
     }
     .persona{
         width:80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .poster{
+        width:80%;
+        max-width: 600px;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -553,6 +693,41 @@ figcaption{
         color: rgb(255, 255, 255);
         background-color:rgb(13, 73, 45);
     }
+    .ux-button{
+        position: absolute;
+        top: 11%;
+        left: 8.5%;
+        color: black;
+        background-color:rgb(250, 228, 169);
+        font-size: 2.5vw;
+        border-radius: 10px;
+        border:none;
+        width: 20vw;
+      }
+    
+    .art-button{
+        position: absolute;
+        top: 11%;
+        left: 73%;
+        color: black;
+        background-color:rgb(250, 228, 169);
+        font-size: 2.5vw;
+        border-radius: 10px;
+        border:none;
+        width: 20vw;
+      }
+    .thumbnail-left{
+        position: absolute;
+        top: 15%;
+        width: 35%;
+        left: 4%;
+    }  
+    .thumbnail-right{
+        position: absolute;
+        top: 15%;
+        width: 35%;
+        right: 4%;
+    }
     .boxed-intro{
         padding: 20px;
         background: #b5d9e9;
@@ -562,42 +737,24 @@ figcaption{
         margin-right: auto;
         border-radius: 20px;
     }
-    .one-small-video{
-        height: 40vw;
-        max-height: 100%;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-}
-.right-button{
-    position: absolute;
-    top: 81%;
-    right: 4%;
-    color: black;
-    background-color:rgb(250, 228, 169);
-    font-size: 2.5vw;
-    border-radius: 10px;
-    border:none;
-    width: 15vw;
-  }
-.double-line{
-    line-height: 1.6em;
-}
-/*Left design*/
+    /*Left design*/
 .left-title {
     position: absolute;
-    bottom: 35%;
+    top: 46%;
     left: 4%;
     color: white;
     font-size: 4vw;
     text-align: left;
     line-height: 1.1em;
   }
+  #kiosk-text{
+    color: rgb(51, 51, 51);
+    font-size: 6.1vw;
+    top: 46%;
+} 
 .left-description {
     position: absolute;
-    top: 67%;
+    top: 66%;
     left: 4%;
     color: white;
     font-size: 1.8vw;
@@ -606,7 +763,7 @@ figcaption{
   }
 .left-date {
     position: absolute;
-    bottom: 55%;
+    top: 34%;
     left: 4%;
     color: white;
     font-size: 1.9vw;
@@ -634,14 +791,148 @@ figcaption{
     border:none;
     width: 15vw;
   }
+    .right-title {
+        position: absolute;
+        top: 52%;
+        right: 4%;
+        color: white;
+        font-size: 6vw;
+        text-align: right;
+        line-height: 1.1em;
+      }
+      .right-title2 {
+        position: absolute;
+        top: 48%;
+        right: 4%;
+        color: white;
+        font-size: 4vw;
+        text-align: right;
+        line-height: 1.1em;
+      }
+    .right-description{
+        position: absolute;
+        top: 68%;
+        right: 4%;
+        width: 35%;
+        color: white;
+        font-size: 1.8vw;
+        text-align: right;
+        font-family: 'Roboto', sans-serif;
+      }
+    .right-description2 {
+        position: absolute;
+        top: 68%;
+        right: 4%;
+        width: 30%;
+        color: white;
+        font-size: 1.8vw;
+        text-align: right;
+        font-family: 'Roboto', sans-serif;
+      }
+    .right-date {
+        position: absolute;
+        top: 46%;
+        right: 4%;
+        color: white;
+        font-size: 1.9vw;
+        text-align: right;
+      }
+      .right-date2 {
+        position: absolute;
+        top: 42%;
+        right: 4%;
+        color: white;
+        font-size: 1.9vw;
+        text-align: right;
+      }
+      .right-details {
+        position: absolute;
+        top: 70%;
+        right: 4%;
+        color: white;
+        font-size: 1.6vw;
+        text-align: right;
+        line-height: 2.3vw;
+        font-family: 'Roboto', sans-serif;
+      }
+      .right-question {
+        position: absolute;
+        top: 68%;
+        right: 4%;
+        color: white;
+        font-size: 1.6vw;
+        text-align: right;
+        line-height: 2.3vw;
+        font-family: 'Roboto', sans-serif;
+      }
+      .right-question br{
+        display: inline;
+    }
+      .right-button{
+        position: absolute;
+        top: 81%;
+        right: 4%;
+        color: black;
+        background-color:rgb(250, 228, 169);
+        font-size: 2.5vw;
+        border-radius: 10px;
+        border:none;
+        width: 15vw;
+      }
+    .one-small-video{
+        height: 40vw;
+        max-height: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    #kiosk-text{
+        color: rgb(51, 51, 51);
+        font-size: 4vw;
+    } 
+    .thumbnail-poster{
+        position: absolute;
+        top: 13.5%;
+        width: 21.5%;
+        left: 12%;
+    }
+    .left-person{
+        z-index: 90;
+        width: 20%;
+        position: absolute;
+        top: 60%;
+        left: 47.5%;
+    }
+    .middle-person{
+        z-index: 90;
+        width: 13%;
+        position: absolute;
+        top: 23%;
+        left: 48%;
+    }
+    .right-person{
+        z-index: 90;
+        width: 17%;
+        position: absolute;
+        top: 57%;
+        right: 0%;
+    }
+    .mobile-only{
+        display: none;
+    }
+}
+
+.double-line{
+    line-height: 1.6em;
+}
+
 
 .left-button:hover, .right-button:hover, form button:hover{
     color: white;
     background-color:rgb(13, 73, 45);
 }
-#black-text{
-    color: rgb(51, 51, 51);
-}
+
 form{
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -682,6 +973,7 @@ mark{
 }
 .yellow{
     color: rgb(250, 215, 120);
+    font-weight: 500;
 }
 .green{
     color: rgb(8, 109, 62);

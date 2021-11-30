@@ -53,17 +53,25 @@
 <br/>
 <br/>
         <div class="container">
-            <img src="img/Lobby.png" alt="Museum Lobby" class="banner-img">
+            <picture>
+                <source media="(min-width: 710px)" srcset="/img/Lobby.png" alt="Museum Lobby" class="banner-img">
+                <source media="(min-width: 10px)" srcset="/img/Lobby Mobile.png">
+                <img src="img/Lobby Mobile.png" alt="Museum Lobby" class="banner-img">
+            </picture>
             <div class="center-text">Hi! 👋 I'm Jadon Kam, a UX<br/>designer passionate about<br/>problem solving and art.<br/>Welcome to my portfolio!</div>
             <a class="ux-button" href="ux.html">View UX Projects</a>
-            <a href="artwork.html" class="art-button">View Artwork</a>
+            <a href="artwork.html" class="art-button">View Art Projects</a>
         </div>
     </div>
     <div class="container">
-        <img src="img/Blue Right.png" alt="Travel Kitt museum background" class="banner-img">
+        <picture>
+            <source media="(min-width: 710px)" srcset="/img/BlueRight.png" alt="Blue background" class="banner-img">
+            <source media="(min-width: 10px)" srcset="/img/Blue Mobile.png">
+            <img src="img/Blue Mobile.png" alt="Blue Background" class="banner-img">
+        </picture>
         <a href=travel-kitt.html>
             <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
-                <source src="travel-kitt/home.mp4" type="video/mp4" alt="Travel Kitt video demo">
+                <source src="travel-kitt/home.mp4" type="video/mp4" alt="a screen recording of a user using Travel Kitt">
                 Your browser does not support the video tag.
             </video>
         </a>
@@ -71,35 +79,51 @@
         <div class="right-title">Travel Kitt</div>
         <div class="right-description">Helping families to plan and learn<br/>about their travel destinations</div>
         <a href=travel-kitt.html class="right-button">View Project</a></button>
+        <img src="travel-kitt/Person.png" class="left-person" alt="A yellow character with a suitcase">
     </div>
     <div class="container">
-        <img src="img/Yellow Left.png" alt="NVIDIA museum background" class="banner-img">
-        <a href=nvidia.html><img src="img/NVIDIA Mascot.png" class="thumbnail-right" style='border: 1vw solid #b48a4a; top:12%'></a>
+        <picture>
+            <source media="(min-width: 710px)" srcset="/img/YellowLeft.png" alt="Yellow background" class="banner-img">
+            <source media="(min-width: 10px)" srcset="/img/Yellow Mobile.png">
+            <img src="img/Yellow Mobile.png" alt="Yellow Background" class="banner-img">
+        </picture>
+        <a href=nvidia.html><img src="img/NVIDIA Mascot.png" class="thumbnail-right" alt="my mascot design" style='border: 1vw solid #b48a4a; top:12%'></a>
         <div class="left-date" id="black-text">Digital Art:<br/>May 2021</div>
         <div class="left-title" id="black-text">NVIDIA<br/>Mascot Design</div>
-        <div class="left-description" id="black-text">My design which won 1st place<br/>in a competition from NVIDIA and Dribbble</div>
+        <div class="left-description" id="black-text">My design which won 1st place in a competition from NVIDIA and Dribbble</div>
         <a href=nvidia.html class="left-button">View Project</a>
+        <img src="img/Painter.png" class="right-person" alt="A green character with a paintbrush">
     </div>
     <div class="container">
-        <img src="img/Green Right.png" alt="Enflyerment museum background" class="banner-img">
+        <picture>
+            <source media="(min-width: 710px)" srcset="/img/GreenRight.png" alt="Green background" class="banner-img">
+            <source media="(min-width: 10px)" srcset="/img/Green Mobile.png">
+            <img src="img/Green Mobile.png" alt="Green Background" class="banner-img">
+        </picture>
         <a href=enflyerment.html>
             <video autoplay loop muted class="thumbnail-left" style='border: 1vw solid #8C5F34'>
-                <source src="enflyerment/New-Layout.mp4" type="video/mp4" alt="Home page with new layout">
+                <source src="enflyerment/New-Layout.mp4" type="video/mp4" alt="A screen recording of the Enflyerment Home page">
                 Your browser does not support the video tag.
             </video>
         </a> 
-        <div class="right-date">UX Design: May 2021</div>
+        <div class="right-date">UX Design: March 2021</div>
         <div class="right-title">Enflyerment</div>
-        <div class="right-description">A resource that helps you reduce your<br/>carbon footprint and your grocery bills</div>
+        <div class="right-description">A resource that helps you reduce your carbon footprint and your grocery bills</div>
         <a href=enflyerment.html class="right-button">View Project</a>
+        <img src="enflyerment/Person.png" class="middle-person" alt="a yellow character carrying a bag of groceries and walking down the stairs">
     </div>
     <div class="container">
-        <img src="img/Yellow Left 2.png" alt="Kiosk museum background" class="banner-img">
-        <a href=kiosk.html><img src="img/Kiosk.png" class="thumbnail-right" style='border: 1vw solid #b48a4a'></a>
+        <picture>
+            <source media="(min-width: 710px)" srcset="/img/YellowLeft2.png" alt="Yellow background" class="banner-img">
+            <source media="(min-width: 10px)" srcset="/img/Yellow Mobile.png">
+            <img src="img/Yellow Mobile.png" alt="Yellow Background" class="banner-img">
+        </picture>
+        <a href=kiosk.html><img src="img/Kiosk.png" alt="a user using the interactive kiosk design" class="thumbnail-right" style='border: 1vw solid #b48a4a'></a>
         <div class="left-date" id="black-text">UX Design:<br/> Winter/Spring 2021</div>
-        <div class="left-title" id="black-text">Brantford<br/>Interactive Kiosk</div>
-        <div class="left-description" id="black-text">Connecting the Brantford public to learn<br/>about Brantford's businesses and buses</div>
+        <div class="left-title" id="kiosk-text">Brantford<br/>Interactive Kiosk</div>
+        <div class="left-description" id="black-text">Connecting the Brantford public to Brantford's businesses and buses</div>
         <a href=kiosk.html class="left-button">View Project</a>
+        <img src="img/BluePerson.png" class="right-person" alt="a blue character smiling and looking at the kiosk">
     </div>
 
     </body>

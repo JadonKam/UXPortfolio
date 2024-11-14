@@ -75,7 +75,7 @@
             <p><b>Timeline: </b>about 7 months (September 18, 2023 to April 8, 2024)</p>
             <p><b>Topic: </b>Real Estate</p>
             <p><b>Number of team members: </b>8</p>
-            <p><b>My role: </b>user research, information architecture, creating wireframes, designing the prototype in Figma, usability testing</p>
+            <p><b>My role: </b>user research, information architecture, creating storyboards and wireframes, designing the prototype in Figma, usability testing</p>
         </div>
         <br/>
 
@@ -138,10 +138,28 @@
         <li>Users would prefer to have the search function & the search filters on the same page. This would lower the repetition of content read by the screen reader. Currently on Rocket Homes, filters are added on a second page after the user enters a location on the first.</li>
         <li>Specific features that make websites and apps difficult to navigate using keyboard navigation and screen readers include sliders, interactive maps, an overuse of headings, and undefined buttons. Avoid using visuals as the only source of information. If using icons, provide a text description, and if using images, provide alt text.</li>
         <li>A list format for the search results where each listing takes up its own row is the easiest to navigate through using a screen reader compared to other formats like grids or columns.</li>
-        <li>The search results on real estate websites lack sufficient description to provide context. It is difficult to know if a search result matches the user's wants and needs for their home when the only information provided in the search results is the address, the price, and the number of bedrooms and bathrooms.</li>
         <li>Many of the participants expressed that they want to know what amenities are within a close proximity of the advertised home as they cannot drive due to their visual impairment. They emphasized the importance of nearby transit and amenities like grocery stores and schools that they can walk to in a short amount of time.</li>
         <li>Since screen readers read all the text from the top of a page to the bottom, users should be able to easily skip features. The page should have different sections where similar content is grouped together so that users can quickly skip through irrelevant content.</li>
-    </ul></p></br>
+        <li>The <mark>search results on real estate websites lack sufficient description</mark> to provide context. It is difficult to know if a search result matches the user's wants and needs for their home when the only information provided in the search results is the address, the price, and the number of bedrooms and bathrooms.</li>
+        <ul><li>The storyboards in the following section visualize this problem. </li></ul>
+    </ul></p>
+<h2>Storyboards</h2>
+<p>If someone can see the images on a real estate website, they’re most likely using the images on the Search Results page to help them browse the many options and to help them decide if a listing is worth selecting and further exploring. However, <mark>for our target users who are not able to see these images, they expressed in our interviews how it’s very difficult to browse the many options on the Search Results page and determine which listings are worth their time to further explore, when the Search Results Page only provides basic information about each listing.</mark> </p>
+</p>
+<figure>
+    <figcaption class="storyboard">The lack of description on the Search Results page paired with the lengthy description in the listing makes the process of searching for a home very time-consuming for screen reader users.</figcaption>
+    <img src="rockethomes/Storyboard1.png" alt="All of these homes are in my budget and have the number of rooms I want. I select a listing and learn more about it through the description. My screen reader reads it to me. The description is very long and not all the information is relevant to me. I wish there was a quicker way to hear the information I want." class="storyboard">
+</img>
+</figure>
+<br/>
+<br/>
+<figure>
+    <figcaption class="storyboard">The new Search Results page should provide users with short descriptions that are relevant to the filters the user selected. This will help users quickly figure out which listings in the Search Results are worth their time to further explore.</figcaption>
+    <img src="rockethomes/Storyboard2.png" alt="The new design lets me choose property details that are important to me at the beginning. The details I chose are used to create a short description of the home on the search results page. The new description is relevant to my needs and helps me find a home that I like more quickly." class="storyboard">
+</img>
+</figure>
+</br>
+<br/>
     <div class="boxed" style="background-color: #d5eee8"> 
         <h1>Ideation</h1>
         <p>Based on our research findings, our newly designed website had to<br/>
@@ -152,7 +170,7 @@
             <li>Group similar content together so users could easily skip content that is not relevant to them</li>
             </ol></br>
         </p>
-        <p>After finalizing an idea for our first prototype using the preferences and patterns discovered in our research, my team created an information architecture structure for the website, a user flow, and basic wireframes.
+        <p>After finalizing an idea for our first prototype using the preferences and patterns discovered in our research, my team created an information architecture structure for the website, a user flow, and basic wireframes. Creating these supported my team and I in building our first prototype in Figma and Webflow.
         </p>
     </div><br/></br>
 
@@ -183,7 +201,7 @@
     </figure>
 </div>
 <br/>
-<p>The third option is to find an agent. We learned from our initial interviews that many of our users value their relationship with their real estate agent so we put this on the homepage due to its importance. Although this option to search for real estate agents in our prototype received positive feedback during testing, <mark>this feature was later removed.</mark> When sharing our prototype and testing results with our client Rocket Homes, our client said that <mark>Rocket Homes finds the user a real estate agent instead of the user choosing the agent themselves.</mark> The ability for the user to choose their own real estate agent is not one they are considering currently.</p>
+<p>The third option is to find an agent. We learned from our initial interviews that many of our users value their relationship with their real estate agent so we put this on the homepage due to its importance. Although this option to search for real estate agents in our prototype received positive feedback during testing, <mark>this feature was later removed due to the business goals of our client Rocket Homes.</mark> When sharing our prototype and testing results with Rocket Homes, they said that <mark>Rocket Homes finds the user a real estate agent instead of the user choosing the agent themselves.</mark> The ability for the user to choose their own real estate agent is not one they are considering currently.</p>
 <figure>
     <figcaption>Find an Agent</figcaption>
     <img src="rockethomes/FindAnAgent.png" alt="On this screen users can enter a location and search for a real estate agent in that location. They can also select a specific real estate agency to find an agent in that agency." class="short-img">
@@ -199,8 +217,7 @@
 </figure>
 <br/>
 <p>Each individual listing contains information about the home’s address, price, number of bedrooms and bathrooms, square feet, and when the listing was posted. This is information that currently exists on the listing cards in Rocket Homes, but has been <mark>reorganized based on user feedback.</mark></p>
-<p>If someone can see the images on a real estate website, they’re most likely using the images on the search results page to help them browse the many options and to help them decide if a listing is worth further exploring. However, for our target users who are not able to see these images, they expressed how it’s very difficult to browse the many options and determine which listings are worth their time with only basic information provided for each listing. </p>
-<p>As a result, <mark>we added a short summary of the house that relates to filters the user selected. The short summary helps provide further information relevant to the user to help them quickly browse the listings and decide which ones to further explore.</mark> For example the second listing here has the description “This bungalow has one garage space, a grocery store 0.5 km away, and faces south” as the user expressed these preferences when filtering.</p>
+<p>We also added <mark>a short summary of the house that relates to filters the user selected. The short summary helps provide further information relevant to the user to help them quickly browse the listings and decide which ones to further explore.</mark> For example the second listing here has the description “This bungalow has one garage space, a grocery store 0.5 km away, and faces south” as the user expressed these preferences when filtering.</p>
 <p>We also <mark>included a distance from searched location as users expressed in our research the importance of being close to certain locations since many of them rely on walking or public transportation as they cannot drive.</mark></p>
 
 <h2>The Listing Details Page</h2>
@@ -223,7 +240,7 @@
 </figure>
 <br/>
 <h1>Usability Testing</h1>
-<p id="points-intro">For our usability testing, we asked participants to complete the following tasks in the Webflow version of our prototype while sharing their thoughts out loud:
+<p id="points-intro">For our usability testing, we established a scenario where the participant was looking for a new home in an area of their choice but with a specific budget and number of bedrooms in mind. We asked participants to <mark>complete the following tasks in the Webflow version of our prototype</mark> while sharing their thoughts out loud:
     <ul class="points">
         <li>Search for a home in a location of their choice. (Participants did this in both the basic and the guided search options.)</li>
         <li>Use the filters when searching for a home to make their search specific to their preferences.</li>

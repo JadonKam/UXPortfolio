@@ -177,7 +177,7 @@ nav a:hover{
     right: 4%;
 }
 
-.persona, .poster{
+.persona, .poster, .storyboard{
     width:100%;
     display: block;
     margin-left: auto;
@@ -763,7 +763,7 @@ figcaption{
         margin-left: 5px;
         margin-right: 5px;
     }
-    .sketch{
+    .sketch, .storyboard{
         width:60%;
         display: block;
         margin-left: auto;

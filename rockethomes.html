@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+
+    <title>Jadon Kam's Portfolio</title>
+    <body>
+    <div class="black-background">
+        <header>
+            <h1 class="logo" style="font-size: 28px;"><a href="index.html">Jadon Kam</a></h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <span class="active"><a href="ux.html">UX Design</a></span>
+                            <ul class="dropdown">
+                                <li class ="active"><a href="rockethomes.html">Rocket Homes Accessibility</a></li>
+                                <li><a href="travel-kitt.html">Travel Kitt</a></li>
+                                <li><a href="kiosk.html">Brantford Interactive Kiosk</a></li>
+                                <li><a href="enflyerment.html">Enflyerment</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="artwork.html">Artwork</a>
+                            <ul class="dropdown">
+                                <li><a href="nvidia.html">NVIDIA Mascot Design</a></li>
+                                <li><a href="poster.html">Poster Designs</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">About Me</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </header>
+<br/>
+<br/>
+<div class="container">
+    <picture>
+        <source media="(min-width: 710px)" srcset="/img/YellowLeft2.png" alt="Yellow background" class="banner-img">
+        <source media="(min-width: 10px)" srcset="/img/Yellow Mobile.png">
+        <img src="img/Yellow Mobile.png" alt="Yellow Background" class="banner-img">
+    </picture>
+
+    <a href=rockethomes.html><img src="rockethomes/Rocket Homes home page.png" alt="The landing page of the new design" class="thumbnail-right" style='border: 1vw solid #b48a4a; top:13%'></a>
+
+    <div class="rocket-date" id="black-text">UX Design: 2023 to 2024</div>
+    <div class="rocket-title">Rocket Homes<br/>Accessibility</div>
+    <div class="rocket-question">How might we design an experience that helps the <span class="green">visually impaired & totally blind learn about homes</span> on the market?</div>
+    <img src="img/GreenPerson.png" class="green-person" alt="">
+    <img src="img/BluePersonHouse.png" class="house-person" alt="a blue character smiling and looking at the kiosk">
+</div>
+</div>
+    <div class="text">
+        <br/>
+        <div class="boxed-intro" style="background-color: #d5eee8"> 
+            <p><b>Timeline: </b>about 7 months (September 18, 2023 to April 8, 2024)</p>
+            <p><b>Topic: </b>Real Estate</p>
+            <p><b>Number of team members: </b>8</p>
+            <p><b>My role: </b>user research, information architecture, creating wireframes, designing the prototype in Figma, usability testing</p>
+        </div>
+        <br/>
+
+</div>
+    </body>
+    <div class="text">
+        <br/>
+        <h1>The Problem: Lack of Accessibility Features</h1>
+        <p>Searching for a home by using real estate websites is a highly visual process, but most real estate websites have little to no accessibility features to help individuals who are visually impaired find homes. For this project, my team worked with the Director of Experience Design at Rocket Homes, a real estate company with its own website and app, to find out how to improve the accessibility of their digital products. We decided to focus on users who have a visual impairment due to the lack of accessibility, not just in the digital products of Rocket Homes but in many other popular real estate websites as well.</p>
+        <p>To understand this problem better, my team performed a competitive analysis of Rocket Homes and other real estate websites such as Zillow, Remax, Realtor, Redfin, Trulia, and Homes.com. We took notes on the experience of using these websites with a screen reader and keyboard to navigate the page, as this is how many users with visual impairments navigate websites. Since they have limited to no vision, they use a keyboard to move around a page instead of a mouse or trackpad.</p> 
+        <p>All these websites <mark>had significant problems with being fully accessible when using a screen reader.</mark> Many important details of the home were undetectable using keyboard navigation. For example, on Rocket Homes, after completing a search for a home in a specific location, an interactive map and a list of homes appears. However, the screen reader can only detect the buttons on the map's interface and not the locations on the map, making the map feature unusable for screen reader users. For the list of homes, the details about a home’s price, number of bedrooms and bathrooms, and number of square feet are undetectable when using a keyboard and screen reader to navigate the page. Instead, due to the coding of the website, these details are read as a link leading to the page with the listing's full details. This makes the home search process even more time-consuming and difficult as the user must select each listing's link to find this essential information on a new page instead of finding it directly on the search results page.</p>
+        <figure>
+            <figcaption>Problems with using a screen reader on Rocket Homes</figcaption>
+            <img src="rockethomes/TheProblem.png" alt="The results of what the page looks like on Rocket Homes after searching for a location. On the left, there is a map with a draw feature that users can use to draw around their desired area on the map. On the right, there are home listings in a grid, and each listing has an image and some basic details about the home. I have added annotations to the image. On the left, I have written a note over the map saying Maps are not useful. The screen reader can read the map buttons but not what's on the map. The Draw feature is not usable using keyboard navigation. On the right, I have written a note over the search results saying Details are not read. The screen reader does not read image alt text, the price, the number of beds and bath, or the square feet, when using keyboard navigation. It reads all this as a link to the full listing." class="persona">
+        </img>
+        </figure>
+        <br/>
+
+<div class="boxed" style="background-color: #d5eee8">       
+<h1>Our Goal/Defining the Problem</h1>
+<p>With this problem in mind, our team set this as our goal: <b>How might we design an experience that helps the visually impaired and totally blind learn about homes on the market?</b></p>
+<p>My team kept our design goal open at first to “an experience” as we were not sure if a website, app, or some other format was the best way to share information about homes to users who have a visual impairment.</p>
+<p>Our client also expressed that he did not want us to make changes to the current version of Rocket Homes. Instead, he wanted us to design a new product from the ground up, specifically designed for accessibility.</p>
+</div>   
+<br/>
+<br/>
+<h1>Research</h1>
+<p>Through personal connections, my team was able to find eight people who had a visual impairment, ranging from partial blindness to complete blindness. For the first round of interviews, <mark>we interviewed each person individually and asked them questions that were related to their experience with finding homes and their experience with using their technological devices.</mark></p>
+<p id="points-intro">In order to understand our target users’ process when searching for a home, our team completed interviews to identify
+    <ul class="points">
+        <li>what prevents them from achieving success in the process</li>
+         <li>what could help them achieve their tasks and goals more easily</li>    
+    </ul></p>
+<p>For the second round of interviews, we created task-based questions to help our research participants follow a general sequence of activities that they would need to complete when searching for a home on a website. This sequence of activities was based on the response of participants from the first round of interviews when they were asked about their process of searching for homes.
+    Through this round of interviews, <mark>we focused on learning about what content users expected to encounter for each step of the process and their desired order of content on a web page from the top to the bottom of the page.</mark></p>
+<h2>Research Overview</h2>
+    <p id="points-intro">The following points are the main takeaways from our user research:
+    <ul class="points">
+        <li>The main issue was not the content of the website as our research participants thought that Rocket Homes’ website had all of the most important information available. <mark>The main problem was that the content was not organized in a way that would be useful to users with a visual impairment and that some content was difficult to find when using a screen reader.</mark></li>
+        <li>The large majority of users agreed that the following order of content about a home was the best as it presented the most important information at the top and the information they would want to encounter last at the bottom:
+            <ul>
+                <li>General information about the home (price, number of bedrooms and bathrooms, square footage, the type of home, the year built)</li> 
+                <li>A written description of the home</li> 
+                <li>Details about the home's appliances and features</li>
+                <li>The size of each room</li>
+                <li>Neighbourhood information</li>
+                <ul><li>While many websites have information about how far nearby amenities are from the home based on the time it takes to drive there, research participants expressed that this should be converted to walking time since many of them cannot drive.</li></ul>
+                <li>Taxes and other financial information</li>
+                <li>Images of the home with accompanying alt text descriptions</li>
+                <ul><li>This is usually at the top of the page, but it has been moved closer to the bottom since it is not as useful for our target users.</li></ul>
+                <li>Contact information about the listing agent</li>
+                <ul><li>This is at the bottom of the page as our research participants said they would only contact the listing agent if everything above interested them.</li></ul>
+                </ul>
+                <li>The majority of the people we contacted in our research <mark>preferred to use their computers to search for homes, so we decided to design a website</mark> instead of an app.</li>
+    </ul></p>
+
+<h2>Other Research Findings</h2>
+<p id="points-intro">
+    <ul class="points">
+        <li>Users would prefer to have the search function & the search filters on the same page. This would lower the repetition of content read by the screen reader. Currently on Rocket Homes, filters are added on a second page after the user enters a location on the first.</li>
+        <li>Specific features that make websites and apps difficult to navigate using keyboard navigation and screen readers include sliders, interactive maps, an overuse of headings, and undefined buttons. Avoid using visuals as the only source of information. If using icons, provide a text description, and if using images, provide alt text.</li>
+        <li>A list format for the search results where each listing takes up its own row is the easiest to navigate through using a screen reader compared to other formats like grids or columns.</li>
+        <li>The search results on real estate websites lack sufficient description to provide context. It is difficult to know if a search result matches the user's wants and needs for their home when the only information provided in the search results is the address, the price, and the number of bedrooms and bathrooms.</li>
+        <li>Many of the participants expressed that they want to know what amenities are within a close proximity of the advertised home as they cannot drive due to their visual impairment. They emphasized the importance of nearby transit and amenities like grocery stores and schools that they can walk to in a short amount of time.</li>
+        <li>Since screen readers read all the text from the top of a page to the bottom, users should be able to easily skip features. The page should have different sections where similar content is grouped together so that users can quickly skip through irrelevant content.</li>
+    </ul></p></br>
+    <div class="boxed" style="background-color: #d5eee8"> 
+        <h1>Ideation</h1>
+        <p>Based on our research findings, our newly designed website had to<br/>
+            <ol class="points">
+            <li>Organize content based on user preferences</li>
+            <li>Improve the efficiency and usability of using the search function and its filters</li>
+            <li>Present the search results in a way that gives users more context about the home and is easier to navigate</li>
+            <li>Group similar content together so users could easily skip content that is not relevant to them</li>
+            </ol></br>
+        </p>
+        <p>After finalizing an idea for our first prototype using the preferences and patterns discovered in our research, my team created an information architecture structure for the website, a user flow, and basic wireframes.
+        </p>
+    </div><br/></br>
+
+<h1>The First Prototype</h1>
+<p>For our first prototype, we <mark>focused more on the layout and information architecture of the website</mark> and decided to work more on the visual design at a later stage. Although many of our target users would not be able to see the visual design of the website, we learned from our interviews that many people with visual impairments often use real estate tools with someone who is sighted like their partner or a real estate agent, so visual design is still important.</p>
+<p>Due to the requirements of needing code so that a screen reader can use the code to determine what to read, we had to create two prototypes. Through Figma, we created the visual design of the prototype, since it is much easier to do visual design iterations in Figma. Using Webflow, our prototype was able to have code that a screen reader could use, so we used Webflow to test how screen reader users would navigate our prototype. The following prototype images are from the Figma version, as the visuals of the Webflow version were kept minimal.</p>
+
+<h2>The Landing Page</h2>
+<p>We made <mark>three versions of search to support three different search scenarios: a basic search, a guided search, and searching for an agent.</mark> Based on our testing, since users wanted their search filters to be on the same page as where they enter their search, the Basic Search option has a search bar where they can type in a location and then add the filters of their choice. The filter options in Basic Search were limited to what our research participants said were the most essential filters.</p>
+        <figure>
+            <figcaption>Basic Search</figcaption>
+            <img src="rockethomes/BasicSearch.png" alt="The Basic Search option is selected. The screen shows the title Location with a search bar where the user can enter their address, neighbourhood, city, or postal code into the search bar. Below the search bar, there are dropdowns for filtering the price, number of bedrooms and bathrooms, home and lot size, and home type. Below this is a button that is labelled Search and apply filters." class="short-img">
+        </img>
+        </figure>
+        <br/>
+<p>For the second search option, since we gained feedback that the organization of filters on existing real estate websites made it difficult to navigate through using screen readers, <mark>we prototyped the guided search to break up the filtering process into small steps.</mark> We learned through our testing that simplicity of the content on a page makes it easier to navigate using a screen reader, so <mark>our reason for this design decision was that if there was only one question in the box each time, this would make the page more simple and therefore easier to navigate.</mark> Since the process was broken down into smaller steps, we were able to put more filter options in the Guided Search compared to the Basic Search, without making the page feel overwhelming.</p>
+<div class="rocket-side-by-side">
+    <figure>
+            <figcaption>The First Guided Search Question</figcaption>
+            <img src="rockethomes/GuidedSearch1.png" alt="When the guided search option is selected, the following instructions appear: Part 1 of 7: Enter an address, neighbourhood, city, or postal code for relevant results. A search bar below can be filled with this information." class="two-screens">
+        </img>
+        </figure>
+    <figure>
+            <figcaption>The Second Guided Search Question</figcaption>
+            <img src="rockethomes/GuidedSearch2.png" alt="After Part 1 is completed, the following instructions appear: Part 2 of 7: What's your ideal price range for a new home? Two text fields can be filled with this information. One field is for the minimum price. One field is for the maximum price." class="two-screens">
+        </img>
+        </figure>
+    </figure>
+</div>
+<br/>
+<p>The third option is to find an agent. We learned from our initial interviews that many of our users value their relationship with their real estate agent so we put this on the homepage due to its importance. Although this option to search for real estate agents in our prototype received positive feedback during testing, <mark>this feature was later removed.</mark> When sharing our prototype and testing results with our client Rocket Homes, our client said that <mark>Rocket Homes finds the user a real estate agent instead of the user choosing the agent themselves.</mark> The ability for the user to choose their own real estate agent is not one they are considering currently.</p>
+<figure>
+    <figcaption>Find an Agent</figcaption>
+    <img src="rockethomes/FindAnAgent.png" alt="On this screen users can enter a location and search for a real estate agent in that location. They can also select a specific real estate agency to find an agent in that agency." class="short-img">
+</img>
+</figure>
+<br/>
+<h2>The Search Results Page</h2>
+<p>Next, the Search Results page is where users will be brought to after completing a basic search or a guided search. On this page, <mark>the results appear in a list format where each listing is numbered to aid with navigation through the list when using a screen reader.</mark> As lists in the format of maps and grids are not screen reader friendly, and often not even usable with screen readers, the listings are not organized in those formats.</p>
+<figure>
+    <figcaption>Search Results</figcaption>
+    <img src="rockethomes/SearchResults.jpg" alt="On this page, users can find the home listings that relate to what the user has searched for. The image shows two listings which appear in the search results." class="short-img">
+</img>
+</figure>
+<br/>
+<p>Each individual listing contains information about the home’s address, price, number of bedrooms and bathrooms, square feet, and when the listing was posted. This is information that currently exists on the listing cards in Rocket Homes, but has been <mark>reorganized based on user feedback.</mark></p>
+<p>If someone can see the images on a real estate website, they’re most likely using the images on the search results page to help them browse the many options and to help them decide if a listing is worth further exploring. However, for our target users who are not able to see these images, they expressed how it’s very difficult to browse the many options and determine which listings are worth their time with only basic information provided for each listing. </p>
+<p>As a result, <mark>we added a short summary of the house that relates to filters the user selected. The short summary helps provide further information relevant to the user to help them quickly browse the listings and decide which ones to further explore.</mark> For example the second listing here has the description “This bungalow has one garage space, a grocery store 0.5 km away, and faces south” as the user expressed these preferences when filtering.</p>
+<p>We also <mark>included a distance from searched location as users expressed in our research the importance of being close to certain locations since many of them rely on walking or public transportation as they cannot drive.</mark></p>
+
+<h2>The Listing Details Page</h2>
+<p>If the user selects the “View full listing” button, they will be brought to the page with the full listing details. The order of the content on this page was determined through our interviews. Details like price, address, square feet, house type, and the number of bedrooms and bathrooms are at the top as this is what users said was the most important. Next is the home description which is important since users rely on a written description to learn about the home since they cannot see the house through the images. After that are Further Details of the house, but this is put under a dropdown. If all the details were available on the page, this would require the screen reader to have to navigate through a lot of content when they might just want to get to other parts of the page. <mark>The dropdowns provide headers that make it much faster to navigate through when using a screen reader.</mark></p>
+<figure>
+    <figcaption>Listing Details</figcaption>
+    <img src="rockethomes/ListingDetails.jpg" alt="This page shows information about the listing including a written description of the home, a dropdown for further details, images of the home, buttons to share or save the listing, and information about the agent who posted the listing." class="short-img">
+</img>
+</figure>
+<br/>
+<p>After the Further Details section are the home’s images which have alt text so the users can understand what is in each image. <mark>These images are located closer to the bottom of the page since our users expressed how they would only go through the images with alt text after becoming interested about the listing through reading the home’s description.</mark> Even though the user may not be able to see the image, many people in our interviews said that <mark>they explore home listings with someone who is sighted so having images there is still important.</mark></p>
+<p>Following that are options to share the listing or to save it to one’s account. Users wanted this near the bottom of the page since after going through the content above with their screen reader, they would be able to determine if the listing was worth sharing or saving. </p>
+
+<h2>The Saved Searches and Listings Page</h2>
+<p>If users click on the save listing button, they will be brought to a Saved page which contains their saved listings in the same numbered list format that appears on the Search Results page to support screen reader navigation. Users can also find their saved searches here as well.</p>
+<figure>
+    <figcaption>Saved (Searches and Listings)</figcaption>
+    <img src="rockethomes/Saved.png" alt="On this page, users can find the home listings that they have saved in a list format. The image shows two listings which have been saved." class="short-img">
+</img>
+</figure>
+<br/>
+<h1>Usability Testing</h1>
+<p id="points-intro">For our usability testing, we asked participants to complete the following tasks in the Webflow version of our prototype while sharing their thoughts out loud:
+    <ul class="points">
+        <li>Search for a home in a location of their choice. (Participants did this in both the basic and the guided search options.)</li>
+        <li>Use the filters when searching for a home to make their search specific to their preferences.</li>
+        <li>Explore the different listings on the search results page and choose one to further explore.</li>
+        <li>Go through a full listing page to determine if they are interested in the home.</li>
+    </ul></p>
+<p id="points-intro"><mark>We tested the prototype with 5 people who had a visually impairment and were familiar with using screen readers to navigate real estate websites.</mark> The feedback we received from our usability testing was positive.
+    <ul class="points">
+        <li>5 of 5 users stated that they would prefer the design that we proposed compared to other real estate websites that they have used before.</li>
+        <li>4 of 5 users liked how the filters were organized.</li>
+        <li>5 of 5 users liked the structure of the information architecture.</li>
+    </ul>
+</p>
+<p id="points-intro">Participants also gave us feedback on areas where the prototype could be improved.
+    <ul class="points">
+        <li>Many users were <mark>not sure what the difference was between basic and guided search based on the title.</mark> After using the guided search, they thought that it was easy to use but <mark>not necessary as the new organization of the filters in the basic search was already simple to use.</mark> To avoid confusion we <mark>removed the guided search and kept the basic search.</mark></li>
+        <li>Forms which required users to fill in, specifically the filters, <mark>needed more detailed instructions</mark> such as how many of the items in a list can be selected by the user. <mark>The type of form field should also be changed to whatever option makes it easier for the user to fill in.</mark> For example, typing in a price is easier to do than selecting a price from a dropdown.</li>
+    </ul>
+</p>
+
+<h1>Updated Prototype</h1>
+<p>My team and I used this feedback to improve the prototype, which we tested again. After this second round of usability testing, we made some more minor edits.</p>
+<p>Our goal for the first two versions of the prototype was to focus on making our prototype work with screen readers and having all the most essential features users would need when searching for homes. After confirming that the prototype worked well, we improved the visual design, in addition to making improvements to problems found in usability testing. <mark>The following images show the updated prototype after two rounds of usability testing were completed.</mark></p>
+<h2>The Landing Page</h2>
+<p>At the top of the landing page is a banner with a link for the user to fill out a form so that they can be paired with an agent. This was placed at the top due to the business needs of Rocket Homes and how many of our research participants stated that they valued having a real estate agent to help them with their home searching journey.</p>
+<p>Below the banner, users can quickly search for a home by entering a location, or they can add additional filters to their search through filling in the 5 filters related to what users thought were the most essential filters.</p>
+<p>Below these 5 filters, users can find 11 additional filters located under the Advanced Filters dropdown. All headings for filters are numbered so that the screen reader can read out the number to let users know how many filters there are in the section. The majority of the filters use radio buttons or checkboxes which when detected by the screen reader, allows the user to know if they should select one option or if they can choose multiple. The filters that are available are based on what users expressed they needed during our interviews and have been organized based on their preferences.</p>
+<div class="rocket-side-by-side">
+    <figure>
+            <figcaption>The Updated Landing Page</figcaption>
+            <img src="rockethomes/NewLandingPage.png" alt="A banner at the top of the page says Welcome to Rocket Homes. Discover more than a home! Below this is a link to Contact an agent. Below this is the Home search form where users can enter a location and search. They can also filter by price, home size or square feet, number of bedrooms, number of bathrooms, and home type. Below this is a dropdown for advanced filters." class="large-img">
+        </img>
+        </figure>
+    <figure>
+            <figcaption>The Advanced Filters Expanded</figcaption>
+            <img src="rockethomes/NewAdvancedFilters.png" alt="In the Advanced Filters dropdown, users can find filters for home features, heating and cooling, year built, fenced property, number of floors, basement finish, parking, schools nearby, grocery distance, transit stops nearby, and area walking score." class="large-img">
+        </img>
+        </figure>
+    </figure>
+</div>
+<br/>
+<h2>The Search Results Page</h2>
+<p>For this page, we kept it quite similar to the first prototype as not much change was needed after testing. The main change was including the total number of items in the list when numbering each search result and changing the words on the button that leads the user to the full listing. Previously, it was "View full listing", but we changed it to "Go to listing" to make our choice of words relevant to our target users.</p>
+<figure>
+            <figcaption>The Updated Search Results Page</figcaption>
+            <img src="rockethomes/NewSearchResults.png" alt="On this page, there are four out of the twenty-one listings that appear in the search results." class="long-img">
+        </img>
+        </figure>
+        <br/>
+<h2>The Listing Details Page</h2>
+<p>Feedback about using dropdowns for the many headers on this page was positive during usability testing. The first prototype did not contain all the information that a listing provides, but we added the missing information in the second prototype. These images from the latest prototype show what the default page looks like when it first loads, and what it looks like when some of the headings are expanded. Having these headings as expandable dropdowns allows for less content on the default page, which helps decrease the amount of time a user needs to complete their task on this page.</p>
+<div class="rocket-side-by-side">
+    <figure style="margin-right: 3vw;">
+            <figcaption>The Updated Listing Details Page</figcaption>
+            <img src="rockethomes/NewListing.jpg" alt="The new listing details page has dropdowns for the following headers: description, further details, rooms, neighbourhood information, property sales and tax, images, and listing agent." class="long-img">
+        </img>
+        </figure>
+    <figure>
+            <figcaption>Some of the Dropdowns Expanded</figcaption>
+            <img src="rockethomes/NewListingExpanded.jpg" alt="The following dropdowns have been expanded: description, further details, rooms, and neighbourhood information. Description includes a written description of the home. Further Details includes information about the interior features, exterior features, parking information, and utilities. Rooms includes a breakdown of the dimensions of all the rooms organized based on the floor that the room is on. Neighbourhood information includes scores out of 100 for public transit, walking, and biking with further information about each method of transportation explaining the reason behind the score." class="long-img">
+        </img>
+        </figure>
+    </figure>
+</div>
+<br/>
+<h2>The Saved Listings and Searches Page</h2>
+<p>Besides improving the visual design and adding the total number of items in the list beside each number, not much was changed on this page compared to the first version of the prototype.</p>
+<figure>
+            <figcaption>The Updated Saved Listings and Searches Page</figcaption>
+            <img src="rockethomes/NewSaved.png" alt="3 saved searches and 2 of the 6 saved listings appear on this page." class="short-img">
+        </img>
+        </figure>
+        <br/>
+<h1>Conclusion</h1>
+        <p>This project was the first project I worked on which focused on designing with users who have a visual impairment. It allowed me to gain a much better understanding of how they use computers and screen readers, which has helped me learn how to make my designs more accessible. I would like to end things off by sharing a quote that was said by one of the people who we interviewed for our user research about the importance of inclusive design.</p>
+        <p><mark>"A well designed web page levels the playing field, whether you're approaching it with no disabilities or with a disability such as mine where I can't actually see the web page, but if it's designed well, I can access all the information just as well. Legally, pages in a web application or on a website need to be accessible, but I think it's just the right thing to make websites and web applications accessible."</mark></p>
+    <br/>
+    <br/>
+    <div class="boxed-end" style="background-color: #d5eee8">
+    <p style="width: 90%; margin-left: auto; margin-right: auto;">To continue looking at my work, you can go back to the UX Design projects page or click the button below to see the project I worked on <b>after this Rocket Homes Accessibility project</b>. Thank you for reading my work!</p><br/>
+        <div class="side-by-side">
+        <a class="next-button" href="travel-kitt.html">Go to my previous UX project:<br/>Travel Kitt</a>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+</div>
+</body>
+</html>

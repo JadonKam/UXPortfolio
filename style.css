@@ -160,6 +160,12 @@ nav a:hover{
     width: 35%;
     left: 5%;
 }
+.library-poster{
+    position: absolute;
+    top: 6%;
+    width: 35%;
+    left: 5%;
+}
 .EEAAO-poster{
     position: absolute;
     top: 8%;
@@ -1097,6 +1103,12 @@ figcaption{
         width: 17%;
         left: 26%;
     }
+    .library-poster{
+        position: absolute;
+        top: 13%;
+        width: 16%;
+        left: 26%;
+    }
     .EEAAO-poster{
         position: absolute;
         top: 13%;
@@ -1147,6 +1159,9 @@ figcaption{
         display: none;
     }
     .UX-poster{
+        display: none;
+    }
+    .library-poster{
         display: none;
     }
 }

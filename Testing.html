@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tips List</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        /* The List */
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tip-item {
+            background: #eef2f3;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 5px solid #4a90e2;
+            display: flex;
+        }
+
+        /* Logic: Hide extra tips by default */
+        .extra-tip { display: none; }
+
+        /* Logic: If checkbox is checked, show the corresponding tip */
+        #tip1:checked ~ .tips-list .tip-1,
+        #tip2:checked ~ .tips-list .tip-2,
+        #tip3:checked ~ .tips-list .tip-3 {
+            display: flex;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        /* Custom Dropdown Styling */
+        .dropdown {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .drop-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #4a90e2;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .drop-content {
+            display: none;
+            position: absolute;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .drop-content { display: block; }
+
+        .drop-item {
+            display: block;
+            padding: 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .drop-item:hover { background: #f9f9f9; }
+
+        /* Hide the actual checkboxes */
+        .toggle-input { display: none; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Daily Tips</h2>
+
+    <!-- Hidden State Toggles -->
+    <input type="checkbox" id="tip1" class="toggle-input">
+    <input type="checkbox" id="tip2" class="toggle-input">
+    <input type="checkbox" id="tip3" class="toggle-input">
+
+    <ul class="tips-list">
+        <li class="tip-item">Start your day with water.</li>
+        <li class="tip-item">Take a 5-minute stretch.</li>
+        
+        <!-- These appear when "selected" in the dropdown -->
+        <li class="tip-item extra-tip tip-1">Focus on one task at a time.</li>
+        <li class="tip-item extra-tip tip-2">Review your goals at lunch.</li>
+        <li class="tip-item extra-tip tip-3">Clean your desk before leaving.</li>
+    </ul>
+
+    <div class="dropdown">
+        <label class="drop-btn">Add More Tips ▼</label>
+        <div class="drop-content">
+            <label for="tip1" class="drop-item">Add Productivity Tip</label>
+            <label for="tip2" class="drop-item">Add Goal Tip</label>
+            <label for="tip3" class="drop-item">Add Workspace Tip</label>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

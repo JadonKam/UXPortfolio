@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Time Savers</title>
+    <style>
+        /* GLOBAL RESET & BOX-SIZING FIX */
+        * { box-sizing: border-box; }
+
+        :root {
+            --burgundy: #800020;
+            --light-grey: #e0e0e0;
+            --beige: #f5f5dc;
+            --error-pink: #fff5f5;
+            --error-red: #d32f2f;
+        }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.5; max-width: 1200px; margin: 40px auto; padding: 20px; background-color: white; }
+        
+        /* Header */
+        .header-box {
+            display: flex; align-items: center; justify-content: center;
+            background-color: var(--burgundy); color: white;
+            position: relative; border-radius: 500px; 
+            margin-bottom: 40px; overflow: hidden;
+            padding: 30px 100px; min-height: 110px;
+        }
+        .header-text-container { display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 2; }
+        .header-box h1 { margin: 0; font-size: 2.2rem; line-height: 1.1; }
+        .header-box .subtitle { font-size: 1.3rem; font-weight: normal; opacity: 0.9; margin-top: 8px; }
+        .header-box img { position: absolute; top: 0; height: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+        .img-left { left: 0; }
+        .img-right { right: 0; }
+
+        /* Intro Row */
+        .intro-row { display: flex; align-items: center; justify-content: space-between; gap: 80px; margin-bottom: 50px; }
+        .intro-text { flex: 1; }
+        .section-title { color: black; margin: 50px 0 20px 0; font-size: 2rem; font-weight: bold; }
+
+        /* Display List */
+        .tip-item {
+            display: flex; align-items: center; padding: 30px 0;
+            background-image: radial-gradient(circle, var(--burgundy) 1.5px, transparent 1.5px);
+            background-position: bottom; background-size: 24px 2px; background-repeat: repeat-x;
+        }
+        .tip-item:last-child { background-image: none; }
+        .checkmark-box { height: 4.2rem; width: auto; margin-right: 35px; flex-shrink: 0; }
+        .tip-text { font-size: 1.4rem; color: #333; font-weight: 500; }
+
+        /* Customization Sections */
+        .custom-section { display: none; margin: 30px 0; padding: 40px; border: 1px solid #eee; background: #fafafa; border-radius: 15px; }
+        .selection-instruction { font-size: 1.2rem; font-weight: bold; color: var(--burgundy); margin-bottom: 15px; display: block; }
+        
+        /* Tips Grid */
+        #tips-grid { border: none; margin-bottom: 20px; }
+        .tip-option-label {
+            display: flex; align-items: center; background: white; padding: 15px; cursor: pointer;
+            transition: background-color 0.2s ease; border-bottom: 1px solid var(--burgundy);
+            width: 100%;
+        }
+        .tip-option-label:hover { background-color: var(--beige) !important; }
+        .tip-option-label.selected { background-color: var(--beige); }
+        .tip-option-label:last-child { border-bottom: none; }
+
+        /* Checkboxes */
+        .custom-checkbox, .media-check-square {
+            appearance: none; -webkit-appearance: none;
+            border: 2px solid var(--burgundy);
+            background-color: white; border-radius: 0;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; position: relative;
+        }
+        .custom-checkbox { width: 22px; height: 22px; margin-right: 20px; }
+        .custom-checkbox:checked { background-color: var(--burgundy); border-color: var(--burgundy); }
+        .media-check-square { width: 40px; height: 40px; margin-right: 12px; background-color: var(--burgundy); border-color: white; }
+
+        /* Icons */
+        .custom-checkbox:checked::after,
+        .media-option input:checked + .media-card .media-check-square::after {
+            content: "\2714"; color: white; font-family: Arial, sans-serif; position: absolute;
+            left: 50%; top: 50%; transform: translate(-50%, -50%);
+        }
+        .custom-checkbox:checked::after { font-size: 16px; }
+        .media-option input:checked + .media-card .media-check-square::after { font-size: 28px; }
+
+        /* Media Grids - Desktop */
+        .media-display-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 30px 0; }
+        .options-grid-media { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 25px 0; }
+        .media-card { display: flex; flex-direction: column; aspect-ratio: 1 / 1; border: 1px solid #ddd; overflow: hidden; height: 100%; width: 100%; }
+        .media-img { height: 70%; width: 100%; object-fit: cover; }
+        .media-info { 
+            height: 30%; background: var(--burgundy); color: white; display: flex; align-items: center; 
+            padding: 0 20px; font-weight: 600; font-size: 1.1rem; border: 2px solid var(--burgundy);
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        
+        .media-option { cursor: pointer; display: block; height: 100%; }
+        .media-option input { display: none; }
+        .media-option:hover .media-info,
+        .media-option input:checked + .media-card .media-info { background-color: white !important; color: var(--burgundy) !important; }
+
+        /* RESPONSIVE LAYOUT (900px and below) */
+        @media (max-width: 900px) {
+            /* Recipes: Rows of 2 */
+            #recipes-grid { grid-template-columns: repeat(2, 1fr); }
+
+            /* Videos: 2 on top, 1 centered bottom */
+            #videos-grid { grid-template-columns: repeat(4, 1fr); }
+            #videos-grid .media-option { grid-column: span 2; }
+            #videos-grid .media-option:nth-child(3) { grid-column: 2 / span 2; }
+        }
+
+        /* Footer */
+        .footer-row { display: flex; gap: 50px; margin-top: 60px; align-items: stretch; }
+        .beige-box { flex: 1; background-color: var(--beige); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; }
+        .beige-box a { color: black; text-decoration: underline; font-weight: 500; }
+        .footer-img { width: 100%; height: 180px; object-fit: cover; margin-top: auto; }
+
+        /* Utility */
+        .error-box { display: flex; align-items: center; background-color: var(--error-pink); border-left: 5px solid var(--error-red); padding: 12px 20px; margin-bottom: 15px; color: var(--error-red); font-weight: 500; border-radius: 4px; }
+        .error-icon { width: 22px; height: 22px; border: 2px solid var(--error-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-weight: bold; }
+        .btn { border: none; padding: 18px 32px; cursor: pointer; font-size: 1.2rem; border-radius: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .btn-burgundy { background-color: var(--burgundy); color: white; }
+        .btn-grey { background-color: var(--light-grey); color: black; }
+        .btn-full { width: 100%; margin-top: 20px; }
+        .btn-group { display: flex; gap: 25px; margin-top: 10px; }
+        .btn-group .btn { flex: 1; min-height: 60px; }
+        .arrow { display: inline-block; margin-right: 15px; transition: transform 0.3s; border: solid white; border-width: 0 3px 3px 0; padding: 5px; transform: rotate(-45deg); }
+        .active .arrow { transform: rotate(45deg); }
+
+        @media print { .btn, .custom-section, .arrow, #btn-tips, #btn-recipes, #btn-videos, .selection-instruction { display: none !important; } .tip-item { -webkit-print-color-adjust: exact; } body { max-width: 100%; margin: 0; } }
+    </style>
+</head>
+<body>
+    <div class="header-box">
+        <img src="https://images.unsplash.com" class="img-left">
+        <div class="header-text-container"><h1>Tips to save time in the kitchen</h1><div class="subtitle">for adults</div></div>
+        <img src="https://images.unsplash.com" class="img-right">
+    </div>
+
+    <div class="intro-row">
+        <div class="intro-text">
+            <h2 class="section-title" style="margin-top:0">Healthy eating tips</h2>
+            <p>Master your kitchen with these expert hacks. Efficiency means more time for yourself and better meals for your family. Customize your selection below, then print it out.</p>
+        </div>
+        <button class="btn btn-burgundy" onclick="window.print()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Print Your Sheet</button>
+    </div>
+    
+    <div id="tip-display"></div>
+    <button id="btn-tips" class="btn btn-burgundy btn-full" onclick="toggleSection('tips')"><span class="arrow"></span> Customize tips</button>
+    <div id="custom-tips-section" class="custom-section">
+        <span class="selection-instruction">Select 5 tips</span>
+        <div id="tips-grid"></div>
+        <div id="error-tips"></div>
+        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('tips')">Cancel</button><button class="btn btn-burgundy" onclick="saveTips()">Customize</button></div>
+    </div>
+
+    <h2 class="section-title">Featured Recipes</h2>
+    <div class="media-display-grid" id="recipe-display"></div>
+    <button id="btn-recipes" class="btn btn-burgundy btn-full" onclick="toggleSection('recipes')"><span class="arrow"></span> Customize recipes</button>
+    <div id="custom-recipes-section" class="custom-section">
+        <span class="selection-instruction">Select 2 recipes</span>
+        <div id="recipes-grid" class="options-grid-media"></div>
+        <div id="error-recipes"></div>
+        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('recipes')">Cancel</button><button class="btn btn-burgundy" onclick="saveRecipes()">Customize</button></div>
+    </div>
+
+    <h2 class="section-title">Kitchen Hack Videos</h2>
+    <div class="media-display-grid" id="video-display"></div>
+    <button id="btn-videos" class="btn btn-burgundy btn-full" onclick="toggleSection('videos')"><span class="arrow"></span> Customize videos</button>
+    <div id="custom-videos-section" class="custom-section">
+        <span class="selection-instruction">Select 2 videos</span>
+        <div id="videos-grid" class="options-grid-media"></div>
+        <div id="error-videos"></div>
+        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('videos')">Cancel</button><button class="btn btn-burgundy" onclick="saveVideos()">Customize</button></div>
+    </div>
+
+    <div class="footer-row">
+        <div class="beige-box"><div><h3>Resources</h3><ul class="custom-bullets"><li><a href="#">Meal Prep Containers Guide</a></li><li><a href="#">Essential Knife Skills</a></li></ul></div><img src="https://images.unsplash.com" class="footer-img"></div>
+        <div class="beige-box"><div><h3>Quick Links</h3><ul class="custom-bullets"><li><a href="#">Pantry Essentials</a></li><li><a href="#">Freezer Friendly Meals</a></li><li><a href="#">Join Our Community</a></li><li><a href="#">Cooking Cheat Sheet</a></li></ul></div><img src="https://images.unsplash.com" class="footer-img"></div>
+    </div>
+
+    <script>
+        const allTips = ["Mince garlic in batches and freeze.", "Use a 'trash bowl' while cooking.", "Grate cheese in bulk in a processor.", "Double recipes and freeze half.", "Prep veggies right after shopping.", "Use a kettle to boil pasta water.", "Clean as you go while prepping.", "Organize pantry by meal type.", "Keep a list of 'go-to' 15-min meals.", "Soak pans immediately after use."];
+        const allRecipes = [
+            { name: "15-Min Sheet Pan Chicken", img: "https://images.unsplash.com" },
+            { name: "One-Pot Pasta Medley", img: "https://images.unsplash.com" },
+            { name: "No-Cook Tuna Salad", img: "https://images.unsplash.com" },
+            { name: "Instant Pot Hearty Stew", img: "https://images.unsplash.com" },
+            { name: "Cold Soba Sesame Noodles", img: "https://images.unsplash.com" },
+            { name: "Quick Stir-Fry Medley", img: "https://images.unsplash.com" }
+        ];
+        const allVideos = [
+            { name: "5 Knife Hacks", img: "https://images.unsplash.com", url: "#" },
+            { name: "Meal Prep Guide", img: "https://images.unsplash.com", url: "#" },
+            { name: "Cleaning Time Savers", img: "https://images.unsplash.com", url: "#" }
+        ];
+
+        let activeTips = [0,1,2,3,4];
+        let activeRecipes = [0,1];
+        let activeVideos = [0,1];
+        let dTips = [], dRecipes = [], dVideos = [];
+
+        function showError(type, count) {
+            document.getElementById(`error-${type}`).innerHTML = `<div class="error-box"><div class="error-icon">!</div><span>Error: Select exactly ${count} items.</span></div>`;
+        }
+
+        function toggleSection(type) {
+            const s = document.getElementById(`custom-${type}-section`), b = document.getElementById(`btn-${type}`);
+            const isOp = s.style.display !== 'block';
+            s.style.display = isOp ? 'block' : 'none';
+            b.classList.toggle('active', isOp);
+            if (isOp) {
+                document.getElementById(`error-${type}`).innerHTML = '';
+                if(type==='tips'){ dTips=[...activeTips]; renderTipsMenu(); }
+                else if(type==='recipes'){ dRecipes=[...activeRecipes]; renderRecipesMenu(); }
+                else { dVideos=[...activeVideos]; renderVideosMenu(); }
+            }
+        }
+
+        function renderDisplay() {
+            const icon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23800020' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E";
+            document.getElementById('tip-display').innerHTML = activeTips.map(i => `<div class="tip-item"><img src="${icon}" class="checkmark-box"><div class="tip-text">${allTips[i]}</div></div>`).join('');
+            document.getElementById('recipe-display').innerHTML = activeRecipes.map(i => `<div class="media-card"><img src="${allRecipes[i].img}" class="media-img"><div class="media-info">${allRecipes[i].name}</div></div>`).join('');
+            document.getElementById('video-display').innerHTML = activeVideos.map(i => `<a href="${allVideos[i].url}" class="media-link"><div class="media-card"><img src="${allVideos[i].img}" class="media-img"><div class="media-info">${allVideos[i].name}</div></div></a>`).join('');
+        }
+
+        function renderTipsMenu() { 
+            document.getElementById('tips-grid').innerHTML = allTips.map((t, i) => `<label class="tip-option-label ${dTips.includes(i) ? 'selected' : ''}"><input type="checkbox" class="custom-checkbox" value="${i}" ${dTips.includes(i)?'checked':''} onchange="hSel(this,'tips')">${t}</label>`).join(''); 
+        }
+        
+        function renderRecipesMenu() { 
+            document.getElementById('recipes-grid').innerHTML = allRecipes.map((r, i) => `<label class="media-option"><input type="checkbox" value="${i}" ${dRecipes.includes(i)?'checked':''} onchange="hSel(this,'recipes')"><div class="media-card"><img src="${r.img}" class="media-img"><div class="media-info"><span class="media-check-square"></span><span>${r.name}</span></div></div></label>`).join(''); 
+        }
+        
+        function renderVideosMenu() { 
+            document.getElementById('videos-grid').innerHTML = allVideos.map((v, i) => `<label class="media-option"><input type="checkbox" value="${i}" ${dVideos.includes(i)?'checked':''} onchange="hSel(this,'videos')"><div class="media-card"><img src="${v.img}" class="media-img"><div class="media-info"><span class="media-check-square"></span><span>${v.name}</span></div></div></label>`).join(''); 
+        }
+
+        window.hSel = (el, type) => {
+            const idx = parseInt(el.value);
+            if(type==='tips'){ 
+                if(el.checked) dTips.push(idx); else dTips = dTips.filter(x => x !== idx); 
+                renderTipsMenu(); 
+            }
+            if(type==='recipes'){ 
+                if(el.checked) dRecipes.push(idx); else dRecipes = dRecipes.filter(x => x !== idx); 
+                renderRecipesMenu();
+            }
+            if(type==='videos'){ 
+                if(el.checked) dVideos.push(idx); else dVideos = dVideos.filter(x => x !== idx); 
+                renderVideosMenu();
+            }
+        };
+
+        function saveTips() { if(dTips.length===5){ activeTips=[...dTips]; renderDisplay(); toggleSection('tips'); } else { showError('tips', 5); } }
+        function saveRecipes() { if(dRecipes.length===2){ activeRecipes=[...dRecipes]; renderDisplay(); toggleSection('recipes'); } else { showError('recipes', 2); } }
+        function saveVideos() { if(dVideos.length===2){ activeVideos=[...dVideos]; renderDisplay(); toggleSection('videos'); } else { showError('videos', 2); } }
+
+        renderDisplay();
+    </script>
+</body>
+</html>

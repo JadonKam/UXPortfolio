@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Planner</title>
+    <style>
+        /* --- 1. CORE LOGIC --- */
+        .logic { display: none; }
+        .tip, .recipe-card, .video-card { display: none; }
+
+        /* Display Items when Checked */
+        #t1:checked ~ .container #displayT1, #t2:checked ~ .container #displayT2, 
+        #t3:checked ~ .container #displayT3, #t4:checked ~ .container #displayT4, 
+        #t5:checked ~ .container #displayT5, #t6:checked ~ .container #displayT6, 
+        #t7:checked ~ .container #displayT7, #t8:checked ~ .container #displayT8, 
+        #t9:checked ~ .container #displayT9, #t10:checked ~ .container #displayT10,
+        #r1:checked ~ .container #displayR1, #r2:checked ~ .container #displayR2,
+        #r3:checked ~ .container #displayR3, #r4:checked ~ .container #displayR4,
+        #r5:checked ~ .container #displayR5, #r6:checked ~ .container #displayR6,
+        #v1:checked ~ .container #displayV1, #v2:checked ~ .container #displayV2,
+        #v3:checked ~ .container #displayV3 { display: flex; }
+
+        /* Show Checkmarks in Dropdown */
+        #t1:checked ~ .container label[for="t1"] .check, #t2:checked ~ .container label[for="t2"] .check,
+        #t3:checked ~ .container label[for="t3"] .check, #t4:checked ~ .container label[for="t4"] .check,
+        #t5:checked ~ .container label[for="t5"] .check, #t6:checked ~ .container label[for="t6"] .check,
+        #t7:checked ~ .container label[for="t7"] .check, #t8:checked ~ .container label[for="t8"] .check,
+        #t9:checked ~ .container label[for="t9"] .check, #t10:checked ~ .container label[for="t10"] .check,
+        #r1:checked ~ .container label[for="r1"] .check, #r2:checked ~ .container label[for="r2"] .check,
+        #r3:checked ~ .container label[for="r3"] .check, #r4:checked ~ .container label[for="r4"] .check,
+        #r5:checked ~ .container label[for="r5"] .check, #r6:checked ~ .container label[for="r6"] .check,
+        #v1:checked ~ .container label[for="v1"] .check, #v2:checked ~ .container label[for="v2"] .check,
+        #v3:checked ~ .container label[for="v3"] .check { opacity: 1; transform: scale(1); }
+
+        /* --- 2. THEME STYLES --- */
+        body { font-family: 'Segoe UI', sans-serif; background: #ffffff; margin: 0; padding: 40px 20px; color: #333; }
+        .container { max-width: 950px; margin: 0 auto; background: #ffffff; padding: 20px; }
+        h1 { text-align: center; color: #1a73e8; margin-bottom: 40px; font-size: 2.2em; }
+        h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 50px; text-align: center; font-weight: 400; }
+
+        /* Tips */
+        .tip { padding: 18px; margin-bottom: 12px; background: #fdfdfd; border: 1px solid #eee; border-left: 6px solid #1a73e8; border-radius: 4px; }
+
+        /* Recipe/Video Cards */
+        .card-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+        .recipe-card, .video-card { flex-direction: column; width: 260px; height: 340px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
+        .card-media { height: 70%; background-size: cover; background-position: center; position: relative; }
+        .card-info { height: 30%; background: #800020; color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 15px; font-weight: bold; }
+        .play-btn::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        /* --- 3. DROPWDOWN STYLES --- */
+        .btn-center { text-align: center; margin-top: 20px; }
+        summary { cursor: pointer; display: inline-block; padding: 10px 25px; border: 1px solid #333; background: #fff; color: #333; border-radius: 25px; font-weight: 600; list-style: none; transition: 0.2s; }
+        summary:hover { background: #333; color: #fff; }
+        
+        .dropdown { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-top: 15px; }
+        label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.85em; padding: 10px; border: 1px solid #eee; border-radius: 6px; box-sizing: border-box; }
+        label:hover { background: #fcfcfc; border-color: #1a73e8; }
+
+        /* Rows Logic */
+        .tip-dropdown label { width: calc(50% - 10px); min-width: 250px; }
+        .standard-dropdown label { width: calc(33.33% - 10px); min-width: 180px; }
+
+        .check-box { width: 18px; height: 18px; border: 1px solid #ddd; border-radius: 4px; display: flex; align-items: center; justify-content: center; background: #f9f9f9; flex-shrink: 0; }
+        .check { color: #4CAF50; font-weight: bold; opacity: 0; transform: scale(0.5); transition: 0.2s; }
+
+        @media print { summary, details { display: none; } }
+    </style>
+</head>
+<body>
+
+    <!-- LOGIC TRIGGERS -->
+    <input type="checkbox" id="t1" class="logic" checked><input type="checkbox" id="t2" class="logic" checked><input type="checkbox" id="t3" class="logic" checked><input type="checkbox" id="t4" class="logic" checked><input type="checkbox" id="t5" class="logic" checked><input type="checkbox" id="t6" class="logic"><input type="checkbox" id="t7" class="logic"><input type="checkbox" id="t8" class="logic"><input type="checkbox" id="t9" class="logic"><input type="checkbox" id="t10" class="logic">
+    <input type="checkbox" id="r1" class="logic" checked><input type="checkbox" id="r2" class="logic" checked><input type="checkbox" id="r3" class="logic"><input type="checkbox" id="r4" class="logic"><input type="checkbox" id="r5" class="logic"><input type="checkbox" id="r6" class="logic">
+    <input type="checkbox" id="v1" class="logic" checked><input type="checkbox" id="v2" class="logic" checked><input type="checkbox" id="v3" class="logic">
+
+    <div class="container">
+        <h1>Wellness Planner</h1>
+
+        <!-- TIPS -->
+        <section>
+            <h2>Daily Success Tips</h2>
+            <div class="tip-list">
+                <div class="tip" id="displayT1"><strong>1:</strong> Morning Hydration</div>
+                <div class="tip" id="displayT2"><strong>2:</strong> Morning Walk</div>
+                <div class="tip" id="displayT3"><strong>3:</strong> Hourly Stretching</div>
+                <div class="tip" id="displayT4"><strong>4:</strong> Goal Review</div>
+                <div class="tip" id="displayT5"><strong>5:</strong> Workspace Reset</div>
+                <div class="tip" id="displayT6"><strong>6:</strong> Mindfulness Meditation</div>
+                <div class="tip" id="displayT7"><strong>7:</strong> Protein-Rich Snack</div>
+                <div class="tip" id="displayT8"><strong>8:</strong> Digital Sunset</div>
+                <div class="tip" id="displayT9"><strong>9:</strong> Daily Reading</div>
+                <div class="tip" id="displayT10"><strong>10:</strong> Gratitude Journal</div>
+            </div>
+            <div class="btn-center">
+                <details>
+                    <summary>Customize Tips</summary>
+                    <div class="dropdown tip-dropdown">
+                        <label for="t1"><div class="check-box"><span class="check">✓</span></div> Hydration</label>
+                        <label for="t2"><div class="check-box"><span class="check">✓</span></div> 15-Min Walk</label>
+                        <label for="t3"><div class="check-box"><span class="check">✓</span></div> Hourly Stretch</label>
+                        <label for="t4"><div class="check-box"><span class="check">✓</span></div> Goal Review</label>
+                        <label for="t5"><div class="check-box"><span class="check">✓</span></div> Desk Reset</label>
+                        <label for="t6"><div class="check-box"><span class="check">✓</span></div> Meditation</label>
+                        <label for="t7"><div class="check-box"><span class="check">✓</span></div> Healthy Snack</label>
+                        <label for="t8"><div class="check-box"><span class="check">✓</span></div> Digital Sunset</label>
+                        <label for="t9"><div class="check-box"><span class="check">✓</span></div> Daily Reading</label>
+                        <label for="t10"><div class="check-box"><span class="check">✓</span></div> Gratitude</label>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- RECIPES -->
+        <section>
+            <h2>Fuel Your Body</h2>
+            <div class="card-grid">
+                <div class="recipe-card" id="displayR1"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Quinoa Buddha Bowl</div></div>
+                <div class="recipe-card" id="displayR2"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Green Power Smoothie</div></div>
+                <div class="recipe-card" id="displayR3"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Feta Salad</div></div>
+                <div class="recipe-card" id="displayR4"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Avocado Toast</div></div>
+                <div class="recipe-card" id="displayR5"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Yogurt Parfait</div></div>
+                <div class="recipe-card" id="displayR6"><div class="card-media" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Red Lentil Soup</div></div>
+            </div>
+            <div class="btn-center">
+                <details>
+                    <summary>Customize Recipes</summary>
+                    <div class="dropdown standard-dropdown">
+                        <label for="r1"><div class="check-box"><span class="check">✓</span></div> Quinoa Bowl</label>
+                        <label for="r2"><div class="check-box"><span class="check">✓</span></div> Green Smoothie</label>
+                        <label for="r3"><div class="check-box"><span class="check">✓</span></div> Feta Salad</label>
+                        <label for="r4"><div class="check-box"><span class="check">✓</span></div> Avocado Toast</label>
+                        <label for="r5"><div class="check-box"><span class="check">✓</span></div> Yogurt Parfait</label>
+                        <label for="r6"><div class="check-box"><span class="check">✓</span></div> Lentil Soup</label>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- VIDEOS -->
+        <section>
+            <h2>Training Sessions</h2>
+            <div class="card-grid">
+                <div class="video-card" id="displayV1"><div class="card-media play-btn" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Morning Yoga</div></div>
+                <div class="video-card" id="displayV2"><div class="card-media play-btn" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">HIIT Drill</div></div>
+                <div class="video-card" id="displayV3"><div class="card-media play-btn" style="background-image: url('https://images.unsplash.com')"></div><div class="card-info">Core Circuit</div></div>
+            </div>
+            <div class="btn-center">
+                <details>
+                    <summary>Customize Videos</summary>
+                    <div class="dropdown standard-dropdown">
+                        <label for="v1"><div class="check-box"><span class="check">✓</span></div> Yoga Flow</label>
+                        <label for="v2"><div class="check-box"><span class="check">✓</span></div> HIIT Session</label>
+                        <label for="v3"><div class="check-box"><span class="check">✓</span></div> Core Circuit</label>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -189,13 +189,17 @@ nav a:hover{
     margin-left: auto;
     margin-right: auto;
 }
-
 .side-by-side{
     display: flex;
     justify-content: center;
 }
+.side-by-side-images{
+    display: block;
+text-align: center;
+}
 .rocket-side-by-side{
-    justify-content: center;
+    display: block;
+text-align: center;
 }
 .small-img{
     height: 35vw;
@@ -209,7 +213,6 @@ nav a:hover{
     height: auto;
     max-height: 95%;
     max-width: 95%;
-    display:block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -251,9 +254,9 @@ nav a:hover{
     height: 60vw;
     max-height: 100%;
     max-width: 100%;
-    display:block;
     margin-left: auto;
     margin-right: auto;
+        object-fit: contain; 
 }
 .long-img{
     height: 90vw;
@@ -800,10 +803,10 @@ figcaption{
     }
     .large-img{
         height: 50vw;
-        max-height: 100%;
-        max-width: 100%;
+        max-width: 30vw;
         margin-left: 5px;
         margin-right: 5px;
+        object-fit: contain;
     }
     .long-img{
         height: 55vw;
@@ -908,6 +911,10 @@ figcaption{
     font-size: 6.1vw;
     top: 46%;
 } 
+.side-by-side-images{
+    display: flex;
+    justify-content: center;
+}
 .left-description {
     position: absolute;
     top: 67%;

@@ -3,261 +3,847 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Time Savers</title>
+    <title>Prototype View - Compact Mobile</title>
     <style>
-        /* GLOBAL RESET & BOX-SIZING FIX */
-        * { box-sizing: border-box; }
-
         :root {
-            --burgundy: #800020;
-            --light-grey: #e0e0e0;
-            --beige: #F9F2EC;
-            --error-pink: #fff5f5;
-            --error-red: #d32f2f;
+            --bg-cream: #e6e1d5;
+            --sidebar-blue: #6e7a91;
+            --dark-blue: #1d252d;
+            --text-main: #ffffff;
+            --active-bg: #e1e4e8;
+            --hover-bg: rgba(255, 255, 255, 0.15);
         }
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.5; max-width: 1200px; margin: 40px auto; padding: 20px; background-color: white; }
-        
-        /* Header */
-        .header-box {
-            display: flex; align-items: center; justify-content: center;
-            background-color: var(--burgundy); color: white;
-            position: relative; border-radius: 500px; 
-            margin-bottom: 40px; overflow: hidden;
-            padding: 30px 100px; min-height: 110px;
-        }
-        .header-text-container { display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 2; }
-        .header-box h1 { margin: 0; font-size: 2.2rem; line-height: 1.1; }
-        .header-box .subtitle { font-size: 1.3rem; font-weight: normal; opacity: 0.9; margin-top: 8px; }
-        .header-box img { position: absolute; top: 0; height: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-        .img-left { left: 0; }
-        .img-right { right: 0; }
-
-        /* Intro Row */
-        .intro-row { display: flex; align-items: center; justify-content: space-between; gap: 80px; margin-bottom: 50px; }
-        .intro-text { flex: 1; }
-        .section-title { color: black; margin: 50px 0 20px 0; font-size: 2rem; font-weight: bold; }
-
-        /* Display List */
-        .tip-item {
-            display: flex; align-items: center; padding: 30px 0;
-            background-image: radial-gradient(circle, var(--burgundy) 1.5px, transparent 1.5px);
-            background-position: bottom; background-size: 24px 2px; background-repeat: repeat-x;
-        }
-        .tip-item:last-child { background-image: none; }
-        .checkmark-box { height: 4.2rem; width: auto; margin-right: 35px; flex-shrink: 0; }
-        .tip-text { font-size: 1.4rem; color: #333; font-weight: 500; }
-
-        /* Customization Sections */
-        .custom-section { display: none; margin: 30px 0; padding: 40px; border: 1px solid #eee; background: #fafafa; border-radius: 15px; }
-        .selection-instruction { font-size: 1.2rem; font-weight: bold; color: var(--burgundy); margin-bottom: 15px; display: block; }
-        
-        /* Tips Grid */
-        #tips-grid { border: none; margin-bottom: 20px; }
-        .tip-option-label {
-            display: flex; align-items: center; background: white; padding: 15px; cursor: pointer;
-            transition: background-color 0.2s ease; border-bottom: 1px solid var(--burgundy);
+        .intro-box {
             width: 100%;
+            max-width: 900px;
+            min-height: 500px;
+            position: relative;
+            background-color: #14181c; 
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            box-sizing: border-box;
+            margin-top: 50px;
+            margin-bottom: 10px;
         }
-        .tip-option-label:hover { background-color: var(--beige) !important; }
-        .tip-option-label.selected { background-color: var(--beige); }
-        .tip-option-label:last-child { border-bottom: none; }
 
-        /* Checkboxes */
-        .custom-checkbox, .media-check-square {
-            appearance: none; -webkit-appearance: none;
-            border: 2px solid var(--burgundy);
-            background-color: white; border-radius: 0;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; position: relative;
+            /* Dark gradient */
+            .intro-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(20, 24, 28, 0.4), rgba(20, 24, 28, 0.95));
+            z-index: 1;
+            }
+
+            /* Image slideshow */
+            .bg-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                z-index: 0; /* Below the gradient */
+                animation: imageFade 12s ease-in-out infinite;
+            }
+
+            .bg-slide:nth-child(1) { animation-delay: 0s; }
+            .bg-slide:nth-child(2) { animation-delay: 4s; }
+            .bg-slide:nth-child(3) { animation-delay: 8s; }
+
+            @keyframes imageFade {
+                0% { opacity: 0; }
+                15% { opacity: 1; }  
+                33% { opacity: 1; }  
+                48% { opacity: 0; }  
+                100% { opacity: 0; }
+            }
+
+            .intro-box-text {
+                position: relative;
+                z-index: 2; /* Above the gradient */
+                max-width: 600px;
+            }
+
+            h1 {
+                font-size: 48px;
+                font-family: sans-serif;
+                color: #ffffff;
+                margin: 0 0 15px 0;
+                font-weight: 900;
+                letter-spacing: -1px;
+            }
+
+            .intro-description {
+                font-family: sans-serif;
+                font-size: 18px;
+                line-height: 27px;
+                margin-bottom: 10px;
+                color: #99aabb;
+            }
+
+        body {
+            margin: 0;
+            padding: 0px 20px;
+            font-family: sans-serif;
+            background-color: var(--bg-cream);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .custom-checkbox { width: 22px; height: 22px; margin-right: 20px; }
-        .custom-checkbox:checked { background-color: var(--burgundy); border-color: var(--burgundy); }
-        .media-check-square { width: 40px; height: 40px; margin-right: 12px; background-color: var(--burgundy); border-color: white; }
 
-        /* Icons */
-        .custom-checkbox:checked::after,
-        .media-option input:checked + .media-card .media-check-square::after {
-            content: "\2714"; color: white; font-family: Arial, sans-serif; position: absolute;
-            left: 50%; top: 50%; transform: translate(-50%, -50%);
+        .paragraph-intro {
+            width: 95%;
+            max-width: 860px;
+            margin-bottom: 20px;
+            margin-top: -20px;
         }
-        .custom-checkbox:checked::after { font-size: 16px; }
-        .media-option input:checked + .media-card .media-check-square::after { font-size: 28px; }
 
-        /* Media Grids - Desktop */
-        .media-display-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 30px 0; }
-        .options-grid-media { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 25px 0; }
-        .media-card { display: flex; flex-direction: column; aspect-ratio: 1 / 1; border: 1px solid #ddd; overflow: hidden; height: 100%; width: 100%; }
-        .media-img { height: 70%; width: 100%; object-fit: cover; }
-        .media-info { 
-            height: 30%; background: var(--burgundy); color: white; display: flex; align-items: center; 
-            padding: 0 20px; font-weight: 600; font-size: 1.1rem; border: 2px solid var(--burgundy);
-            transition: background-color 0.2s ease, color 0.2s ease;
+        .paragraph-regular {
+            width: 95%;
+            max-width: 860px;
+            margin-bottom: 20px;
+        }
+
+        .paragraph-intro h2 { 
+            font-size: 24px; 
+            margin-bottom: 12px; 
+            color: rgb(32, 32, 32);
+        }
+        .paragraph-intro,.paragraph-regular p { font-size: 15px; line-height: 1.6; color: #444; }
+
+        .prototype-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            min-height: 700px;
+            background-color: var(--dark-blue);
+            border-radius: 24px;
+            overflow: visible;
+            box-shadow: 0 10px 55px rgba(0,0,0,0.2);
+            scroll-margin-top: 60px; /* Controls the margin between the top of the window and the prototype box when a button is selected */
+            margin-bottom: 40px;
+        }
+
+        .paragraph-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--dark-blue);
+            border-radius: 24px;
+            overflow: visible;
+            box-shadow: 0 10px 55px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .text-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            min-height: 700px;
+            background-color: var(--dark-blue);
+            border-radius: 24px;
+            box-shadow: 0 10px 55px rgba(0,0,0,0.2);
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        a{
+            color: #1e4ca0;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            flex: 0 0 220px;
+            background-color: var(--sidebar-blue);
+            color: white;
+            position: relative;
+            border-radius: 24px 0 0 24px;
+        }
+
+        .sidebar-sticky-wrapper {
+            position: sticky;
+            top: 40px; /* Distance from top of screen when scrolling */
+            padding: 45px 20px; /* Move the padding here */
+        }
+
+        .sidebar h3 {
+            font-size: 18px;
+            font-family: sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .month-list { list-style: none; padding: 0; margin: 0; }
+        .month-item {
+            padding: 12px 20px;
+            margin: 6px 0;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: 0.2s ease;
+        }
+        .month-item.active { background-color: var(--active-bg); color: var(--sidebar-blue); font-weight: bold; }
+        .month-item:hover:not(.active) { background-color: var(--hover-bg); }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 55px 50px 30px 50px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content h2 { margin: 0 0 15px 0; font-size: 24px; }
+
+        
+        .big-box-content {
+            flex: 1;
+            padding: 50px 50px 15px 50px;
+            color: white;
+            display: block;
+            flex-direction: column;
+        }
+
+        .big-box-content h2 { margin: 0 0 25px 0; font-size: 24px; }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 35px;
+        }
+
+        .description-bullets {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-top: -15px;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .prototype-image { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            border-radius: 14px;
+        }
+
+        .big-image { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            border-radius: 14px;
+            margin-bottom: 20px;
+            
+        }
+
+        .image-container img, .image-container video {
+            border-radius: 14px; 
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .image-container img:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-stack-item {
+            margin-bottom: 40px;
+        }
+
+        .footer-notes { margin-bottom: 25px; padding: 0; list-style: none; }
+        
+        #big-box-content-bullets{
+            margin-bottom:40px;
         }
         
-        .media-option { cursor: pointer; display: block; height: 100%; }
-        .media-option input { display: none; }
-        .media-option:hover .media-info,
-        .media-option input:checked + .media-card .media-info { background-color: white !important; color: var(--burgundy) !important; }
-
-        /* RESPONSIVE LAYOUT (900px and below) */
-        @media (max-width: 900px) {
-            /* Recipes: Rows of 2 */
-            #recipes-grid { grid-template-columns: repeat(2, 1fr); }
-
-            /* Videos: 2 on top, 1 centered bottom */
-            #videos-grid { grid-template-columns: repeat(4, 1fr); }
-            #videos-grid .media-option { grid-column: span 2; }
-            #videos-grid .media-option:nth-child(3) { grid-column: 2 / span 2; }
+        .footer-notes li {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #e5e7eb;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 25px;
         }
 
-        /* Footer */
-        .footer-row { display: flex; gap: 50px; margin-top: 60px; align-items: stretch; }
-        .beige-box { flex: 1; background-color: var(--beige); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; }
-        .beige-box a { color: black; text-decoration: underline; font-weight: 500; }
-        .footer-img { width: 100%; height: 180px; object-fit: cover; margin-top: auto; }
+        .footer-notes li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            top: 3px;
+            color: white;
+            font-size: 18px;
+            line-height: 1;
+        }
 
-        /* Utility */
-        .error-box { display: flex; align-items: center; background-color: var(--error-pink); border-left: 5px solid var(--error-red); padding: 12px 20px; margin-bottom: 15px; color: var(--error-red); font-weight: 500; border-radius: 4px; }
-        .error-icon { width: 22px; height: 22px; border: 2px solid var(--error-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-weight: bold; }
-        .btn { border: none; padding: 18px 32px; cursor: pointer; font-size: 1.2rem; border-radius: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; }
-        .btn-burgundy { background-color: var(--burgundy); color: white; }
-        .btn-grey { background-color: var(--light-grey); color: black; }
-        .btn-full { width: 100%; margin-top: 20px; }
-        .btn-group { display: flex; gap: 25px; margin-top: 10px; }
-        .btn-group .btn { flex: 1; min-height: 60px; }
-        .arrow { display: inline-block; margin-right: 15px; transition: transform 0.3s; border: solid white; border-width: 0 3px 3px 0; padding: 5px; transform: rotate(-45deg); }
-        .active .arrow { transform: rotate(45deg); }
+    .middle-person{
+        z-index: 90;
+        width: 13%;
+        position: absolute;
+        top: 23%;
+        left: 48%;
+    }
+    .sub-menu {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
 
-        @media print { .btn, .custom-section, .arrow, #btn-tips, #btn-recipes, #btn-videos, .selection-instruction { display: none !important; } .tip-item { -webkit-print-color-adjust: exact; } body { max-width: 100%; margin: 0; } }
+.sub-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.sub-btn:hover { background: rgba(255, 255, 255, 0.349); }
+.sub-btn.active-sub {
+    background: var(--active-bg);
+    color: var(--dark-blue);
+    font-weight: bold;
+}
+
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+
+            .intro-box{
+                margin-top: 25px;
+            }
+
+            .intro-box-text {
+                margin-left: -10px;
+            }
+            body { padding: 25px; }
+
+            .paragraph-intro {
+                margin-top: -10px;
+            }
+            
+            .prototype-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
+                margin-bottom: 30px;
+            }
+            .paragraph-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
+                margin-bottom: 30px;
+            }
+            .text-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+
+            .sidebar { 
+                position: sticky; 
+                top: 20px;          
+                z-index: 100; 
+                box-shadow: 
+                    -24px -24px 0 0 var(--bg-cream), 
+                    24px -24px 0 0 var(--bg-cream);
+                border-radius: 24px 24px 0 0;
+                margin-top: -1px;
+                padding: 15px 15px 10px 15px; /* Decreased top and bottom padding */
+                flex: none;
+            }
+
+            .sidebar-sticky-wrapper {
+                position: static; /* Disable the inner sticky on mobile */
+                padding: 0;
+            }
+
+            .sidebar h3 { 
+                margin-top: 10px; 
+                margin-bottom: 15px; 
+            }
+
+            .month-list { 
+                display: flex; 
+                flex-wrap: wrap; /* Allows buttons to turn into multiple rows */
+                overflow-x: visible; /* Prevents horizontal scrolling */ 
+                gap: 8px; 
+                padding-bottom: 10px;
+            }
+
+            .month-item { 
+                margin: 0; /* Remove vertical spacing between buttons */
+                padding: 8px 16px; 
+                flex-shrink: 0;
+            }
+
+            .main-content { padding: 25px 30px 10px 30px; }
+            .big-box-content { padding: 35px 30px 10px 30px; }
+            .description { margin-bottom: 25px; }
+        }
+
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="header-box">
-        <img src="img/Circles1.png" class="img-left">
-        <div class="header-text-container"><h1>Tips to save time in the kitchen</h1><div class="subtitle">for adults</div></div>
-        <img src="img/Circle2.png" class="img-right">
-    </div>
+    <div class="intro-box">
+    <!-- Cleaned up background layers (No gradients needed here anymore!) -->
+    <div class="bg-slide" style="background-image: url('travel-kitt/Book.png');"></div>
+    <div class="bg-slide" style="background-image: url('travel-kitt/ticket.png');"></div>
+    <div class="bg-slide" style="background-image: url('image3.jpg');"></div>
 
-    <div class="intro-row">
-        <div class="intro-text">
-            <h2 class="section-title" style="margin-top:0">Healthy eating tips</h2>
-            <p>The amount of time it takes to prepare and cook can often be seen as a challenge when it comes to healthy eating. Try following these simple tips to help save time preparing and cooking meals:</p>
+    <div class="intro-box-text">
+        <h1>Food Guide For You</h1>
+        <div class="intro-description">
+            <div>A tool to help users apply Canada’s Food Guide in their everyday life</div>
         </div>
-        <button class="btn btn-burgundy" onclick="window.print()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Print your tip sheet</button>
     </div>
-    
-    <div id="tip-display"></div>
-    <button id="btn-tips" class="btn btn-burgundy btn-full" onclick="toggleSection('tips')"><span class="arrow"></span> Customize tips</button>
-    <div id="custom-tips-section" class="custom-section">
-        <span class="selection-instruction">Select 5 tips</span>
-        <div id="tips-grid"></div>
-        <div id="error-tips"></div>
-        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('tips')">Cancel</button><button class="btn btn-burgundy" onclick="saveTips()">Customize</button></div>
+</div>
+
+<body>
+        <div class="paragraph-regular">
+        <p>Note: The prototypes on this page are for the purpose of my portfolio only. They are an abridged version of the official food guide resource.</p>
+        </div>
+
+        <div class="paragraph-container">
+            <div class="big-box-content">
+                <h2>The problem</h2>
+                <p class="description">After conducting some user research about people’s opinions on Canada’s Food Guide, the team found that many people desired information that had actionable advice and was less general. 
+                    <br/><br/>Different groups of people had different ways that they hoped Canada’s Food Guide could be more specific to their lifestyle. For example: 
+                    <ul class="description-bullets">
+                        <li>Parents were looking for healthy school lunch ideas for their kids.</li>
+                        <li>Teens were looking for ways to improve their kitchen skills to make healthy meals.</li>
+                    </ul>
+                <p class="description">Although Canada’s Food Guide provides helpful advice about dietary guidance, this information can be more general and is often in the form of a web page with multiple paragraphs. While some people may take the time to read these pages, many people want something that is more concise, quicker to read through, and easier to understand.</p>
+                    <img class="big-image" src="FGFY/PlanWhatYouEat.png" alt="The Plan What You Eat page which has paragraphs of text with information about meal planning tips.">
+                <ul class="footer-notes" id="big-box-content-bullets">
+                    <li>This screenshot of the "Plan what you eat page" shows useful tips for meal planning. However, the information is not presented in an engaging way and is quite general. Some users are looking for meal planning tips that are more specific, such as planning healthy school lunches to pack for their children.</li>
+                </ul>
+            </div>
     </div>
 
-    <h2 class="section-title">Recipes</h2>
-    <div class="media-display-grid" id="recipe-display"></div>
-    <button id="btn-recipes" class="btn btn-burgundy btn-full" onclick="toggleSection('recipes')"><span class="arrow"></span> Customize recipes</button>
-    <div id="custom-recipes-section" class="custom-section">
-        <span class="selection-instruction">Select 2 recipes</span>
-        <div id="recipes-grid" class="options-grid-media"></div>
-        <div id="error-recipes"></div>
-        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('recipes')">Cancel</button><button class="btn btn-burgundy" onclick="saveRecipes()">Customize</button></div>
+        <div class="paragraph-container" style="background-color: #293d36;">
+            <div class="big-box-content">
+                <h2>The idea</h2>
+                <p class="description">Since people wanted information that was concise and specific to their needs and lifestyle, the team decided to create a web tool where users could make their own tip sheets about healthy eating that were tailored to their lifestyle. Besides tips, these tip sheets would also include recipes, videos, and helpful links to Canada’s Food Guide pages that were related to the user’s selected activity. The tips, recipes, and videos could then be further customized to meet the user’s food preferences.</p>
+    </div>
     </div>
 
-    <h2 class="section-title">Videos</h2>
-    <div class="media-display-grid" id="video-display"></div>
-    <button id="btn-videos" class="btn btn-burgundy btn-full" onclick="toggleSection('videos')"><span class="arrow"></span> Customize videos</button>
-    <div id="custom-videos-section" class="custom-section">
-        <span class="selection-instruction">Select 2 videos</span>
-        <div id="videos-grid" class="options-grid-media"></div>
-        <div id="error-videos"></div>
-        <div class="btn-group"><button class="btn btn-grey" onclick="toggleSection('videos')">Cancel</button><button class="btn btn-burgundy" onclick="saveVideos()">Customize</button></div>
+
+        <div class="paragraph-intro">
+        <h2>The prototype before usability testing</h2>
+        <p>As the prototype designer of the team, my responsibility was to design a <a href="https://www.figma.com/proto/N5sSM2jvsao3VP1Yrvk9ve/Food-guide-for-you--Adults----Pre-testing-and-recommendations?node-id=1-27&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=1%3A27&hotspot-hints=0">Figma prototype</a> for the team’s idea. I collaborated with nutritionists and web writers who created the written content on the tip sheets. The following shows different pages from my prototype before the team conducted usability testing.</p>
     </div>
 
-    <div class="footer-row">
-        <div class="beige-box"><div><h3>These tips can help you apply Canada's food guide.</h3><ul class="custom-bullets"><li><a href="#">Plan what you eat</a></li><li><a href="#">Cook more often</a></li></ul></div><img src="https://images.unsplash.com" class="footer-img"></div>
-        <div class="beige-box"><div><h3>Discover more tips for healthy eating.</h3><ul class="custom-bullets"><li><a href="#">Meal planning</a></li><li><a href="#">Healthy eating at home</a></li><li><a href="#">Healthier grocery shopping</a></li><li><a href="#">Healthy eating on a budget</a></li></ul></div><img src="https://images.unsplash.com" class="footer-img"></div>
+    <div class="prototype-container">
+        <nav class="sidebar">
+            <div class="sidebar-sticky-wrapper">
+            <h3>Page designs</h3>
+            <ul class="month-list">
+                <li class="month-item active" onclick="updateView('Landing page', this)">Landing page</li>
+                <li class="month-item" onclick="updateView('Life stage', this)">Life stage</li>
+                <li class="month-item" onclick="updateView('Setting', this)">Setting</li>
+                <li class="month-item" onclick="updateView('Tips', this)">Tips</li>
+                <li class="month-item" onclick="updateView('Option to customize', this)">Option to customize</li>
+                <li class="month-item" onclick="updateView('Steps to customize', this)">Steps to customize</li>
+                <li class="month-item" onclick="updateView('Tip sheet', this)">Tip sheet</li>
+            </ul>
+            </div>
+        </nav>
+
+        <main class="main-content" id="main-content">
+            <h2 id="view-title">Landing page</h2>
+            <p id="view-desc" class="description">This page provides an overview of how to use the tool and what the user can expect to find on the tip sheet that they create.</p>
+            
+            <div class="image-container" id="image-container">
+                <img id="view-img" class="prototype-image" src="FGFY/OldLanding.png">
+                <ul class="footer-notes" id="footer-notes"></ul>
+            </div>
+        </main>
     </div>
+
+    <div class="paragraph-container" style="background-color: #293d36;">
+        <div class="big-box-content">
+            <h2>Usability testing</h2>
+            <div class="description">
+            <p>
+                Our team collaborated with a team of UX researchers to test my prototype with adults, teens, and kids. I helped come up with scenarios and tasks to use for testing that were relevant to the life stage of the research participant.
+            </p>
+            <p style="margin-bottom: -10px;">Scenario and task example:</p>
+            <ul>
+                <li>
+                    You've been wanting to limit your spending at the workplace cafeteria. Instead, you're looking for recipes you can quickly make and pack for lunch. Using the website, find resources that can help you with achieving this.
+                </li>
+                <ul>
+                    <li style="margin-top: 5px;">
+                        The user would find this by selecting “Adults” (for their life stage), “Work” (for their setting), and “Pack quick and easy lunches” (for their tip topic).
+                    </li>
+                </ul>
+            </ul>
+            <p style="margin-bottom: -10px;">
+                Usability testing was conducted through Zoom sessions that were one-on-one and moderated.
+            </p>
+            <ul>
+                <li>18 sessions were conducted</li>
+                <ul>
+                    <li style="margin-top: 5px;">Languages: 13 in English and 5 in French</li>
+                    <li>Life stages: 12 adults, 3 teens, and 3 children</li>
+                    <li>Participants came from different provinces across Canada, had varied daily internet usage, and had various ethnic backgrounds.</li>
+                </ul>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+        <div class="paragraph-intro">
+        <h2>The prototype after usability testing</h2>
+        <p>
+            Based on the insights and user feedback from usability testing, I made changes to the prototype to improve the design of the web tool. The following design changes help create a better user experience and solve usability issues discovered during testing.
+        </p>
+    </div>
+
+    <!-- Second Prototype Container -->
+<div class="prototype-container">
+    <nav class="sidebar">
+        <div class="sidebar-sticky-wrapper">
+            <h3>Design changes</h3>
+            <ul class="month-list">
+                <!-- Include 2 so it knows which container to update -->
+                <li class="month-item active" onclick="updateView('For children', this, 2)">For children</li>
+                <li class="month-item" onclick="updateView('Picking a group first', this, 2)">Picking a group first</li>
+                <li class="month-item" onclick="updateView('New steps page', this, 2)">New steps page</li>
+                <li class="month-item" onclick="updateView('New organization', this, 2)">New organization</li>
+                <li class="month-item" onclick="updateView('Customization', this, 2)">Customization</li>
+                <li class="month-item" onclick="updateView('More recipes', this, 2)">More recipes</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content" id="main-content-2">
+        <h2 id="view-title-2">For children: more visually engaging</h2>
+        <p id="view-desc-2" class="description" style="margin-bottom: 0px;">
+                Children reacted well to the tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults (the only difference being the use of the Kids brand’s green instead of burgundy), that part of the process was not engaging for them.
+        <br/><br/>
+                I designed a new interface that expanded the use of illustrations and colours beyond the tip sheet and included interactive illustrations when hovering and clicking on buttons.            
+            </p>
+        </p>
+        <div class="image-container" id="image-container-2">
+            <img id="view-img-2" class="prototype-image" src="https://placeholder.com" alt="Prototype Page">
+            <ul class="footer-notes" id="footer-notes-2"></ul>
+        </div>
+    </main>
+</div>
+
+
+
 
     <script>
-        const allTips = ["<span><strong>Double Up.</strong> While you are preparing a meal, think about what could make upcoming meals easier. Chop extra vegetables, cook some extra rice or leave some ‘un-dressed’ salad in a container. If you prepare a little extra, it will be ready when you need it and you only have to clean up once.</span>", "<span><strong>Use your freezer.</strong> Make larger batches of meals like soups, stews, casseroles, pasta dishes and chili. Freeze leftovers to use for future meals when you are busy.</span>", "<span><strong>Cook once, eat for days.</strong> Find a time that works for you and prepare many meals at the same time.</span>", "<span><strong>Create inspired leftovers.</strong> Use your leftovers to make other unique meals and snacks. Using leftovers also reduces food waste and saves time and money.</span>", "<span><strong>Use time-saving kitchen tools.</strong> Make meal preparation quicker with hand blenders, mini-choppers and garlic presses. Put ingredients in a pressure cooker or slow cooker, turn it on and dinner will be ready with little effort.</span>", "<span><strong>Keep it simple.</strong> Healthy eating doesn’t need to take a lot of time. Sandwiches, breakfast for dinner or no-cook meals can be very helpful on days when you don’t have a lot of time.</span>", "<span><strong>Enjoy one-pot meals.</strong> Save time by preparing meals where all the ingredients are cooked together in one pot.</span>", "<span><strong>Clean as you go.</strong> Keep a sink full of hot soapy water to soak your dishes. Have a wet cloth to wipe up small messes as you go. This will speed up clean-up time at the end of the meal.</span>", "<span><strong>Use healthy convenience foods.</strong> Canned or frozen food can be helpful when you are trying to prepare a healthy meal in hurry. Be sure to choose those that have little to no added sodium, sugars or saturated fat.</span>"];
-        const allRecipes = [
-            { name: "Caprese muffin-tin frittatas", img: "https://images.unsplash.com" },
-            { name: "Avocado and bean lettuce wraps", img: "https://images.unsplash.com" },
-            { name: "Quinoa and vegetable casserole", img: "https://images.unsplash.com" },
-            { name: "Turkey chili", img: "https://images.unsplash.com" },
-            { name: "Chickpea and carrot salad", img: "https://images.unsplash.com" },
-            { name: "Tuna salad wraps", img: "https://images.unsplash.com" }
-        ];
-        const allVideos = [
-            { name: "Use Canada’s food guide plate to make any meal", img: "https://images.unsplash.com", url: "https://www.canada.ca/en/health-canada/services/video/food-nutrition/plate-make-any-meal.html" },
-            { name: "Best way to thaw frozen meat!", img: "https://images.unsplash.com", url: "https://www.canada.ca/en/health-canada/services/video/food-nutrition/best-way-thaw-frozen-meat.html" },
-            { name: "Mix it up veggies", img: "https://images.unsplash.com", url: "https://www.canada.ca/en/health-canada/services/video/food-nutrition/mix-it-up-veggies.html" }
-        ];
+        const prototypeData = {
+            "Landing page": {
+                title: "Landing page",
+                description: "This page provides an overview of how to use the tool and what the user can expect to find on the tip sheet that they create.",
+                images: ["FGFY/OldLanding.png"],
+                bullets: [[]]
+            },
+            "Life stage": {
+                title: "Life stage",
+                description: "Our research showed that people in the same life stage were interested in similar topics, so the team decided to have the user select their life stage in the process.",
+                images: [
+                    "FGFY/LifeStage.png",
+                ],
+                bullets: [
+                    ["Selecting the Children and Teens life stages would lead to pages where the branding is changed to the kids or teens branding."]
+                ]
+            },
 
-        let activeTips = [0,1,2,3,4];
-        let activeRecipes = [0,1];
-        let activeVideos = [0,1];
-        let dTips = [], dRecipes = [], dVideos = [];
+            "Setting": {
+                title: "Setting",
+                description: "People wanted tips related to where they were eating or making food choices, such as work, school (appears if Children or Teens is selected), eating out, and the grocery store. As a result, the team decided to have the user select their setting in the process.",
+                images: [
+                    "FGFY/Setting.png",
+                ],
+                bullets: [
+                    ["This image shows the tip topics that appear if the user selects Adults."],
+                ]
+            },
 
-        function showError(type, count) {
-            document.getElementById(`error-${type}`).innerHTML = `<div class="error-box"><div class="error-icon">!</div><span>Error: Select exactly ${count} items.</span></div>`;
-        }
+            "Tips": {
+                title: "Tips",
+                description: "The team came up with a list of tip topics to provide more specific guidance on a variety of food-related activities. These tip topics were organized based on the life stage and setting that were relevant to topic.",
+                images: ["FGFY/TipsList.png"], 
+                bullets: [["This image shows the tip topics that appear if the user selects Adults and Home."]]
+            },
 
-        function toggleSection(type) {
-            const s = document.getElementById(`custom-${type}-section`), b = document.getElementById(`btn-${type}`);
-            const isOp = s.style.display !== 'block';
-            s.style.display = isOp ? 'block' : 'none';
-            b.classList.toggle('active', isOp);
-            if (isOp) {
-                document.getElementById(`error-${type}`).innerHTML = '';
-                if(type==='tips'){ dTips=[...activeTips]; renderTipsMenu(); }
-                else if(type==='recipes'){ dRecipes=[...activeRecipes]; renderRecipesMenu(); }
-                else { dVideos=[...activeVideos]; renderVideosMenu(); }
-            }
-        }
+            "Option to customize": {
+                title: "Option to customize",
+                description: "On this page, users have the choice to customize the tips, recipes, and videos that appear on the tip sheet. I thought it would be a good idea to give users this choice as some may want tips more quickly and not want to go through the customization process.",
+                images: [
+                    "FGFY/OptionToCustomize.png",
+                ],
+                bullets: [
+                    ["If the user chose “Yes, continue to customize.”, they would move on to the next steps to customize their tips, recipes, and videos.",
+                    "If the user chose “No, get my tip sheet now.”, they would receive a tip sheet with tips, recipes, and videos chosen by the food guide team."]
+                ]
+            },
 
-        function renderDisplay() {
-            const icon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23800020' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E";
-            document.getElementById('tip-display').innerHTML = activeTips.map(i => `<div class="tip-item"><img src="img/GreenCheckbox.png" class="checkmark-box"><div class="tip-text">${allTips[i]}</div></div>`).join('');
-            document.getElementById('recipe-display').innerHTML = activeRecipes.map(i => `<div class="media-card"><img src="${allRecipes[i].img}" class="media-img"><div class="media-info">${allRecipes[i].name}</div></div>`).join('');
-            document.getElementById('video-display').innerHTML = activeVideos.map(i => `<a href="${allVideos[i].url}" class="media-link"><div class="media-card"><img src="${allVideos[i].img}" class="media-img"><div class="media-info">${allVideos[i].name}</div></div></a>`).join('');
-        }
+            "Steps to customize": {
+                title: "Steps to customize",
+                description: "These optional steps allow the user to tailor the tips, recipes, and videos that appear on their tip sheet to better suit their food and lifestyle preferences.",
+                images: [
+                    "FGFY/CustomizeTips.png",
+                    "FGFY/CustomizeRecipes.png",
+                    "FGFY/CustomizeVideos.png"
+                ],
+                bullets: [
+                    ["Here users can select the 5 tips that they would most like to try and apply in their daily life. By encouraging users to choose 5, we hoped that users would be more thoughtful about what tips they would realistically apply instead of just selecting everything to include in their tip sheet."],
+                    ["Here users can select the 2 recipes that they want to make."],
+                    ["Here users can select the 2 videos about the tip topic that they chose to learn more about that topic."]
+                ]
+            },
 
-        function renderTipsMenu() { 
-            document.getElementById('tips-grid').innerHTML = allTips.map((t, i) => `<label class="tip-option-label ${dTips.includes(i) ? 'selected' : ''}"><input type="checkbox" class="custom-checkbox" value="${i}" ${dTips.includes(i)?'checked':''} onchange="hSel(this,'tips')">${t}</label>`).join(''); 
-        }
-        
-        function renderRecipesMenu() { 
-            document.getElementById('recipes-grid').innerHTML = allRecipes.map((r, i) => `<label class="media-option"><input type="checkbox" value="${i}" ${dRecipes.includes(i)?'checked':''} onchange="hSel(this,'recipes')"><div class="media-card"><img src="${r.img}" class="media-img"><div class="media-info"><span class="media-check-square"></span><span>${r.name}</span></div></div></label>`).join(''); 
-        }
-        
-        function renderVideosMenu() { 
-            document.getElementById('videos-grid').innerHTML = allVideos.map((v, i) => `<label class="media-option"><input type="checkbox" value="${i}" ${dVideos.includes(i)?'checked':''} onchange="hSel(this,'videos')"><div class="media-card"><img src="${v.img}" class="media-img"><div class="media-info"><span class="media-check-square"></span><span>${v.name}</span></div></div></label>`).join(''); 
-        }
-
-        window.hSel = (el, type) => {
-            const idx = parseInt(el.value);
-            if(type==='tips'){ 
-                if(el.checked) dTips.push(idx); else dTips = dTips.filter(x => x !== idx); 
-                renderTipsMenu(); 
-            }
-            if(type==='recipes'){ 
-                if(el.checked) dRecipes.push(idx); else dRecipes = dRecipes.filter(x => x !== idx); 
-                renderRecipesMenu();
-            }
-            if(type==='videos'){ 
-                if(el.checked) dVideos.push(idx); else dVideos = dVideos.filter(x => x !== idx); 
-                renderVideosMenu();
-            }
+            "Tip sheet": {
+                title: "Tip sheet",
+                description: `
+                    <p style="margin-top: 0px">The final tip sheet contains tips, recipes, and videos to help the user with their healthy food goals.</p><p>If the user selected “Yes, continue to customize” in the “Option to customize” step, these sections would show their choices.</p>
+                    <p style="margin-bottom: -5px">If the user selected “No, get my tip sheet now”, these sections would contain information chosen by the food guide team. However the user can use the customize buttons under the tips, recipes, and videos sections to edit those sections individually.</p>
+                    `,
+                images: ["FGFY/AdultsTipSheet.png"], 
+                bullets: [["This tip sheet is the result of the user selecting \"Adults\" as their life stage, \"Grocery store\" as their setting, and \"Find healthy foods that cost less\" as their tip topic."]],
+                    subPages: {
+                        "Adults": { img: "FGFY/AdultsTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Adults\" as their life stage, \"Grocery store\" as their setting, and \"Find healthy foods that cost less\" as their tip topic." },
+                        "Teens": { img: "FGFY/TeensTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Teens\" as their life stage, \"Grocery store\" as their setting, and \"Make healthy choices when ordering food\" as their tip topic." },
+                        "Kids": { img: "FGFY/KidsTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Kids\" as their life stage, \"Grocery store\" as their setting, and \"Pack the best school lunch\" as their tip topic." }
+                    }
+            },
         };
 
-        function saveTips() { if(dTips.length===5){ activeTips=[...dTips]; renderDisplay(); toggleSection('tips'); } else { showError('tips', 5); } }
-        function saveRecipes() { if(dRecipes.length===2){ activeRecipes=[...dRecipes]; renderDisplay(); toggleSection('recipes'); } else { showError('recipes', 2); } }
-        function saveVideos() { if(dVideos.length===2){ activeVideos=[...dVideos]; renderDisplay(); toggleSection('videos'); } else { showError('videos', 2); } }
+const prototypeData2 = {
+    "For children": {
+        title: "For children: more visually engaging",
+        description: `
+            <p style="margin-top: 0px">
+                Children reacted well to the tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults (the only difference being the use of the Kids brand’s green instead of burgundy), that part of the process was not engaging for them.
+            </p>
+            <p style="margin-bottom: -5px">
+                I designed a new interface that expanded the use of illustrations and colours beyond the tip sheet and included interactive illustrations when hovering and clicking on buttons.            
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [[]]
+    },
+    "Picking a group first": {
+        title: "Picking a group first",
+        description: ` 
+            <p style="margin-top: 0px">
+                There was some confusion about the previous way of organizing tip topics by “Life stage” and “Setting” because the term “Life stage” was not always clear for users. Some thought the term “Age group” was better. 
+            </p>
+            <ul>
+            <li style="margin-bottom: 15px">
+                My team and I had discussed this before,but we specifically chose “Life stage” since there is no specific age group for someone to be a parent.
+            </li>
+            <li>
+                However, since there is an overlap of someone being a parent and another life stage, parents were not always sure which life stage to select.
+            </li>
+            </ul>
+            <p style="margin-bottom: -5px">
+                My solution to this problem was to create a new page with only 3 groups: Children, Teens, and Adults. This way, parents would select “Adults” instead of having to choose between "Adults" and “Parents”. Then, the information that was previously available under “Parents” would be organized into new categories. More details about these categories can be found in the "New organization" section.
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [[]]
+    },
+    "New steps page": {
+        title: "New steps page",
+        description: `
+            <p style="margin-top: 0px">
+                In the previous design, users thought that the “Healthy Eating Tips”, “Recipes” and “Videos” images were clickable and would lead them to a page about that. However, they were not clickable and only there to represent the content that the tool would provide. Also due to varying screen sizes, the “Start” button did not always appear above the fold, causing it to go unnoticed by some users until they scrolled down.
+            </p>
+            <p>
+                I changed the “Start” button to a much larger “Create your tip sheet now” button which also includes an image due to the tendency of users to click on images with the expectation that it would lead them to a new page. I also used Canada’s Food Guide’s burgundy brand colour for colour contrast to make the button stand out from the rest of the page.
+            </p>
+            <p style="margin-bottom: -5px">
+                I also changed the instructions for the 3 steps due to the new organization of tip topics that I created based on usability testing feedback.
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [[]]
+    },
+    "New organization": {
+        title: "New organization",
+        description: `
+            <p style="margin-top: 0px">
+            There is also an overlap of the home setting and other settings for food preparation. While someone may be looking for meals to bring to work or school, they often prepare these meals at home.
+            <ul>
+                <li>While I could crosslink those tip topics in both home and the other setting, this would make the list of topics under home very long.</li>
+            </ul>
+            </p>
+            <p>
+            There is also an overlap of the home setting and other settings for food preparation. While someone may be looking for meals to bring to work or school, they often prepare these meals at home.
+            <ul>
+                <li style="margin-bottom: 15px">I sorted tip topics by food-related tasks: choosing food and drinks, eating and healthy habits, making meals, and involving kids.</li>
+                <li style="margin-bottom: -15px">By organizing the tip topics based on activities, this removed the problems due to the overlap of different life stages and settings.</li>
+            </ul>
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [[]]
+    },
+    "Customization": {
+        title: "Customization",
+        description: `
+            <p style="margin-top: 0px">
+            While some users thought it made sense to customize the tip sheet before seeing it in the previous design, others wanted to view the tip sheet first before deciding if they wanted to customize it or not.
+            <ul>
+                <li>
+                    The choice of the Yes and No options was meant to accommodate this difference in opinions which I expected. However, giving users a choice actually caused more confusion.
+                </li>
+                <li>
+                    This page received mixed feedback depending on whether the user actually read the text on the page. Since some users tend to scan text rather than read it, some users clicked a button without completely understanding what to expect on the next page, which caused confusion.
+                </li>
+            </ul>
+            </p>
+            <p style="margin-bottom: -5px">
+                As a result, I removed this option. Users will now get their tip sheet first, and then if they are not satisfied with the tips, recipes, or videos, they can use the customize buttons to change them.
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [["This is the result from the No option. I did not choose the result from the Yes option as some users said that if they wanted to get tips quickly, they would not read through the long list of 10+ tips that they could choose from to customize their tip sheet."]]
+    },
+    "More recipes": {
+        title: "More recipes",
+        description: `
+            <p style="margin-top: 0px; margin-bottom: -5px">
+                Participants wanted more recipes and videos to choose from on the customization pages. Canada’s Food Guide does not have that many videos, so I could not include more relevant options. However, as significantly more recipes were published since I began working on this project, I could increase the number of recipe options to 6, while still keeping the recipes relevant to the tip sheet topic.
+            </p>
+        `,
+        images: ["image-link.jpg"],
+        bullets: [[]]
+    },
+};
 
-        renderDisplay();
+function updateView(key, element, containerNum = 1) {
+    // 1. Identify which data and IDs to use
+    const data = containerNum === 2 ? prototypeData2[key] : prototypeData[key];
+    const suffix = containerNum === 2 ? "-2" : "";
+
+    // 2. Manage 'active' state ONLY for the sidebar that was clicked
+    const sidebar = element.closest('.month-list');
+    sidebar.querySelectorAll('.month-item').forEach(item => item.classList.remove('active'));
+    element.classList.add('active');
+
+    // 3. Select the correct main content area
+    const content = document.getElementById(`main-content${suffix}`);
+    content.classList.remove('fade-in');
+    void content.offsetWidth; // Trigger reflow for animation
+    content.classList.add('fade-in');
+
+    // 4. Update Title and Description
+    document.getElementById(`view-title${suffix}`).innerText = data.title;
+    document.getElementById(`view-desc${suffix}`).innerHTML = data.description;
+
+    // 5. Build the Media Stack (Images/Videos + Bullets)
+    const imageContainer = document.getElementById(`image-container${suffix}`);
+    imageContainer.innerHTML = data.images.map((url, index) => {
+        const isVideo = url.match(/\.(mp4|webm|ogg|mov)$/i);
+        const bulletArray = data.bullets[index] || [];
+        const bulletsHtml = bulletArray.map(text => `<li>${text}</li>`).join('');
+
+        const mediaHtml = isVideo 
+            ? `<video class="prototype-image" controls autoplay muted loop playsinline aria-label="${data.title} video demonstration">
+                    <source src="${url}" type="video/mp4">
+                    Your browser does not support the video tag.
+               </video>`
+            : `<img class="prototype-image" src="${url}" alt="${data.title}" prototype>`;
+
+                    // Add buttons if there are subPages
+        let subMenuHtml = '';
+        if (data.subPages) {
+            subMenuHtml = `
+                <div class="sub-menu">
+                    ${Object.keys(data.subPages).map(name => 
+                        `<button class="sub-btn ${name === 'Adults' ? 'active-sub' : ''}" 
+                        onclick="switchSubView('${name}', '${key}', this)">${name}</button>`
+                    ).join('')}
+                </div>
+            `;
+        }
+
+        return `
+            <div class="image-stack-item">
+                ${mediaHtml}
+                ${bulletsHtml ? `<ul class="footer-notes">${bulletsHtml}</ul>` : ''}
+                ${subMenuHtml} 
+            </div>
+        `;
+    }).join('');
+
+    // 6. Smooth Scroll to the top of the specific container being updated
+    setTimeout(() => {
+        element.closest('.prototype-container').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }, 50);
+};
+function switchSubView(subKey, viewKey, btnElement) {
+    const data = prototypeData[viewKey].subPages[subKey];
+    const parent = btnElement.closest('.image-stack-item');
+    
+    // 1. Identify the new file type
+    const isVideo = data.img.match(/\.(mp4|webm|ogg|mov)$/i);
+    
+    // 2. Build the new media tag (Image or Video)
+    const newMediaHtml = isVideo 
+        ? `<video class="prototype-image" controls autoplay muted loop playsinline>
+                <source src="${data.img}" type="video/mp4">
+           </video>`
+        : `<img class="prototype-image" src="${data.img}" alt="${subKey}">`;
+
+    // 3. Replace the old media element entirely
+    const oldMedia = parent.querySelector('.prototype-image');
+    oldMedia.outerHTML = newMediaHtml;
+
+    // 4. Update the bullet point text
+    const bullet = parent.querySelector('.footer-notes li');
+    if (bullet) bullet.innerText = data.bullet;
+
+    // 5. Update active button styling
+    btnElement.parentElement.querySelectorAll('.sub-btn').forEach(btn => btn.classList.remove('active-sub'));
+    btnElement.classList.add('active-sub');
+}
+
+
     </script>
 </body>
 </html>

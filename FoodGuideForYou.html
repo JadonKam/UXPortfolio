@@ -329,7 +329,7 @@
 }
 
 .mobile-top-shield {
-    display: none;
+    display: contents;
 }
 
 
@@ -350,16 +350,13 @@
             }
     
                 .mobile-top-shield {
-        display: block;
         position: sticky;
         top: 0;
-        left: 0;
         width: 100%;
         /* Dynamically matches the height of your iPhone 15 clock/battery status bar region */
-        height: env(safe-area-inset-top); 
         background-color: var(--bg-cream);
-        z-index: 101; /* Sits slightly higher to mask content perfectly */
-        margin-bottom: calc(-1 * env(safe-area-inset-top)); /* Prevents pushing your content down layout-wise */
+        z-index: 100; /* Sits slightly higher to mask content perfectly */
+        padding-top: env(safe-area-inset-top); 
     }
             
     .prototype-container,
@@ -379,9 +376,9 @@
     }
 
             .sidebar { 
-                position: sticky; 
-                top: env(safe-area-inset-top);          
-                z-index: 100; 
+                position: relative; 
+                top: auto;          
+                z-index: 1; 
         box-shadow: none;
         /* Flatten top border radius to naturally cap the screen boundary */
         border-radius: 24px 24px 0 0;

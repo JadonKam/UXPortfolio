@@ -328,10 +328,6 @@
     font-weight: bold;
 }
 
-.mobile-top-shield {
-    display: contents;
-}
-
 
         /* Mobile view */
         @media (max-width: 768px) {
@@ -348,49 +344,44 @@
             .paragraph-intro {
                 margin-top: -10px;
             }
-    
-                .mobile-top-shield {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        /* Dynamically matches the height of your iPhone 15 clock/battery status bar region */
-        background-color: var(--bg-cream);
-        z-index: 100; /* Sits slightly higher to mask content perfectly */
-        padding-top: env(safe-area-inset-top); 
-    }
             
-    .prototype-container,
-    .paragraph-container,
-    .text-container { 
-        flex-direction: column;
-        overflow: visible;
-        border-radius: 24px; 
-        box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
-        margin-bottom: 30px;
-        /* Dynamic scroll margin aligned perfectly to modern viewport dimensions */
-        scroll-margin-top: calc(env(safe-area-inset-top) + 120px); 
-    }
-
-        .text-container {
-        margin-top: 20px;
-    }
+            .prototype-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
+                margin-bottom: 30px;
+            }
+            .paragraph-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
+                margin-bottom: 30px;
+            }
+            .text-container { 
+                flex-direction: column;
+                overflow: visible;
+                border-radius: 24px; 
+                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
 
             .sidebar { 
-                position: relative; 
-                top: auto;          
-                z-index: 1; 
-        box-shadow: none;
-        /* Flatten top border radius to naturally cap the screen boundary */
-        border-radius: 24px 24px 0 0;
-        margin-top: -1px;
-        /* Hardware Safe-Area variables push your text completely clear of the iPhone island notch */
-        padding-top: 15px; 
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 12px;
-        flex: none;
-        background-color: var(--sidebar-blue);
-    }
+                position: sticky; 
+                top: 20px;          
+                z-index: 100; 
+                box-shadow: 
+                    -24px -24px 0 0 var(--bg-cream), 
+                    24px -24px 0 0 var(--bg-cream);
+                border-radius: 24px 24px 0 0;
+                margin-top: -1px;
+                padding: 15px 15px 10px 15px; /* Decreased top and bottom padding */
+                flex: none;
+            }
 
             .sidebar-sticky-wrapper {
                 position: static; /* Disable the inner sticky on mobile */
@@ -475,7 +466,6 @@
     </div>
 
     <div class="prototype-container">
-        <div class="mobile-top-shield"></div> 
         <nav class="sidebar">
             <div class="sidebar-sticky-wrapper">
             <h3>Page designs</h3>
@@ -544,7 +534,6 @@
 
     <!-- Second Prototype Container -->
 <div class="prototype-container">
-    <div class="mobile-top-shield"></div> 
     <nav class="sidebar">
         <div class="sidebar-sticky-wrapper">
             <h3>Design changes</h3>

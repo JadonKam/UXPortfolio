@@ -88,7 +88,7 @@
                 font-size: 18px;
                 line-height: 27px;
                 margin-bottom: 10px;
-                color: #99aabb;
+                color: #cfd6de;
             }
 
         body {
@@ -345,43 +345,38 @@
                 margin-top: -10px;
             }
             
-            .prototype-container { 
-                flex-direction: column;
-                overflow: visible;
-                border-radius: 24px; 
-                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
-                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
-                margin-bottom: 30px;
-            }
-            .paragraph-container { 
-                flex-direction: column;
-                overflow: visible;
-                border-radius: 24px; 
-                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
-                scroll-margin-top: 20px; /* Should be the same number as .sidebar top */
-                margin-bottom: 30px;
-            }
-            .text-container { 
-                flex-direction: column;
-                overflow: visible;
-                border-radius: 24px; 
-                box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
-                margin-top: 20px;
-                margin-bottom: 30px;
-            }
+    .prototype-container,
+    .paragraph-container,
+    .text-container { 
+        flex-direction: column;
+        overflow: visible;
+        border-radius: 24px; 
+        box-shadow: 0 15px 15px -10px rgba(0,0,0,0.3);
+        margin-bottom: 30px;
+        /* Dynamic scroll margin aligned perfectly to modern viewport dimensions */
+        scroll-margin-top: calc(env(safe-area-inset-top) + 120px); 
+    }
+
+        .text-container {
+        margin-top: 20px;
+    }
 
             .sidebar { 
                 position: sticky; 
-                top: 20px;          
+                top: 0;          
                 z-index: 100; 
-                box-shadow: 
-                    -24px -24px 0 0 var(--bg-cream), 
-                    24px -24px 0 0 var(--bg-cream);
-                border-radius: 24px 24px 0 0;
-                margin-top: -1px;
-                padding: 15px 15px 10px 15px; /* Decreased top and bottom padding */
-                flex: none;
-            }
+        box-shadow: none;
+        /* Flatten top border radius to naturally cap the screen boundary */
+        border-radius: 0 0 24px 24px;
+        margin-top: -1px;
+        /* Hardware Safe-Area variables push your text completely clear of the iPhone island notch */
+        padding-top: calc(env(safe-area-inset-top) + 15px); 
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 12px;
+        flex: none;
+        background-color: var(--sidebar-blue);
+    }
 
             .sidebar-sticky-wrapper {
                 position: static; /* Disable the inner sticky on mobile */
@@ -418,15 +413,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
     <div class="intro-box">
-    <!-- Cleaned up background layers (No gradients needed here anymore!) -->
-    <div class="bg-slide" style="background-image: url('travel-kitt/Book.png');"></div>
-    <div class="bg-slide" style="background-image: url('travel-kitt/ticket.png');"></div>
-    <div class="bg-slide" style="background-image: url('image3.jpg');"></div>
+    <div class="bg-slide" style="background-image: url('FGFY/FGFY1.png');"></div>
+    <div class="bg-slide" style="background-image: url('FGFY/FGFY2.png');"></div>
+    <div class="bg-slide" style="background-image: url('FGFY/FGFY3.png');"></div>
 
     <div class="intro-box-text">
         <h1>Food Guide For You</h1>
         <div class="intro-description">
-            <div>A tool to help users apply Canada’s Food Guide in their everyday life</div>
+            <div>A Canada’s Food Guide tool to help people find practical healthy eating tips that are tailored to their needs and lifestyle</div>
         </div>
     </div>
 </div>
@@ -439,7 +433,7 @@
         <div class="paragraph-container">
             <div class="big-box-content">
                 <h2>The problem</h2>
-                <p class="description">After conducting some user research about people’s opinions on Canada’s Food Guide, the team found that many people desired information that had actionable advice and was less general. 
+                <p class="description">After conducting some user research about people’s opinions on Canada’s Food Guide, the team found that many people desired actionable advice from the food guide that was less general. 
                     <br/><br/>Different groups of people had different ways that they hoped Canada’s Food Guide could be more specific to their lifestyle. For example: 
                     <ul class="description-bullets">
                         <li>Parents were looking for healthy school lunch ideas for their kids.</li>
@@ -542,7 +536,7 @@
                 <!-- Include 2 so it knows which container to update -->
                 <li class="month-item active" onclick="updateView('For children', this, 2)">For children</li>
                 <li class="month-item" onclick="updateView('Picking a group first', this, 2)">Picking a group first</li>
-                <li class="month-item" onclick="updateView('New steps page', this, 2)">New steps page</li>
+                <li class="month-item" onclick="updateView('New landing page', this, 2)">New landing page</li>
                 <li class="month-item" onclick="updateView('New organization', this, 2)">New organization</li>
                 <li class="month-item" onclick="updateView('Customization', this, 2)">Customization</li>
                 <li class="month-item" onclick="updateView('More recipes', this, 2)">More recipes</li>
@@ -559,13 +553,15 @@
             </p>
         </p>
         <div class="image-container" id="image-container-2">
-            <img id="view-img-2" class="prototype-image" src="https://placeholder.com" alt="Prototype Page">
+            <video id="view-img-2" class="prototype-image" src="FGFY/FGFYKids.mp4" alt="Prototype Page" controls autoplay loop muted></video>
             <ul class="footer-notes" id="footer-notes-2"></ul>
         </div>
     </main>
 </div>
 
-
+<div class="paragraph-regular" style="margin-top: -20px; margin-bottom: 70px;">
+    <p>After making these improvements in my prototype, I passed my prototype and accompanying notes to the team’s web developer, who will publish Food Guide For You once web development is complete.</p>
+</div>
 
 
     <script>
@@ -659,7 +655,7 @@ const prototypeData2 = {
                 I designed a new interface that expanded the use of illustrations and colours beyond the tip sheet and included interactive illustrations when hovering and clicking on buttons.            
             </p>
         `,
-        images: ["image-link.jpg"],
+        images: ["FGFY/FGFYKids.mp4"],
         bullets: [[]]
     },
     "Picking a group first": {
@@ -680,11 +676,11 @@ const prototypeData2 = {
                 My solution to this problem was to create a new page with only 3 groups: Children, Teens, and Adults. This way, parents would select “Adults” instead of having to choose between "Adults" and “Parents”. Then, the information that was previously available under “Parents” would be organized into new categories. More details about these categories can be found in the "New organization" section.
             </p>
         `,
-        images: ["image-link.jpg"],
+        images: ["FGFY/PickGroup.png"],
         bullets: [[]]
     },
-    "New steps page": {
-        title: "New steps page",
+    "New landing page": {
+        title: "New landing page",
         description: `
             <p style="margin-top: 0px">
                 In the previous design, users thought that the “Healthy Eating Tips”, “Recipes” and “Videos” images were clickable and would lead them to a page about that. However, they were not clickable and only there to represent the content that the tool would provide. Also due to varying screen sizes, the “Start” button did not always appear above the fold, causing it to go unnoticed by some users until they scrolled down.
@@ -696,7 +692,7 @@ const prototypeData2 = {
                 I also changed the instructions for the 3 steps due to the new organization of tip topics that I created based on usability testing feedback.
             </p>
         `,
-        images: ["image-link.jpg"],
+        images: ["FGFY/NewLanding.png"],
         bullets: [[]]
     },
     "New organization": {
@@ -716,7 +712,7 @@ const prototypeData2 = {
             </ul>
             </p>
         `,
-        images: ["image-link.jpg"],
+        images: ["FGFY/NewOrganization.mp4"],
         bullets: [[]]
     },
     "Customization": {
@@ -737,8 +733,8 @@ const prototypeData2 = {
                 As a result, I removed this option. Users will now get their tip sheet first, and then if they are not satisfied with the tips, recipes, or videos, they can use the customize buttons to change them.
             </p>
         `,
-        images: ["image-link.jpg"],
-        bullets: [["This is the result from the No option. I did not choose the result from the Yes option as some users said that if they wanted to get tips quickly, they would not read through the long list of 10+ tips that they could choose from to customize their tip sheet."]]
+        images: ["FGFY/Customization.mp4"],
+        bullets: [["This is the result from the previous No option. I did not choose the result from the Yes option as some users said that if they wanted to get tips quickly, they would not read through the long list of 10+ tips that they could choose from to customize their tip sheet."]]
     },
     "More recipes": {
         title: "More recipes",
@@ -747,7 +743,7 @@ const prototypeData2 = {
                 Participants wanted more recipes and videos to choose from on the customization pages. Canada’s Food Guide does not have that many videos, so I could not include more relevant options. However, as significantly more recipes were published since I began working on this project, I could increase the number of recipe options to 6, while still keeping the recipes relevant to the tip sheet topic.
             </p>
         `,
-        images: ["image-link.jpg"],
+        images: ["FGFY/MoreRecipes.png"],
         bullets: [[]]
     },
 };

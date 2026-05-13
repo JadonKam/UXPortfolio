@@ -10,7 +10,7 @@
             --sidebar-blue: #6e7a91;
             --dark-blue: #1d252d;
             --text-main: #ffffff;
-            --active-bg: #e1e4e8;
+            --active-bg: #e1e8e4;
             --hover-bg: rgba(255, 255, 255, 0.15);
         }
         .intro-box {
@@ -28,6 +28,7 @@
             box-sizing: border-box;
             margin-top: 50px;
             margin-bottom: 10px;
+            box-shadow: 0 10px 55px rgba(0,0,0,0.3);
         }
 
             /* Dark gradient */
@@ -38,35 +39,37 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(20, 24, 28, 0.4), rgba(20, 24, 28, 0.95));
+            background: linear-gradient(rgba(69, 69, 69, 0.6), rgba(0, 0, 0, 0.99));
             z-index: 1;
             }
 
-            /* Image slideshow */
-            .bg-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-size: cover;
-                background-position: center;
-                opacity: 0;
-                z-index: 0; /* Below the gradient */
-                animation: imageFade 12s ease-in-out infinite;
-            }
+.bg-scroll-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Matches container height */
+    z-index: 0;
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    /* 20s loop */
+    animation: verticalPan 20s ease-in-out infinite;
+}
 
-            .bg-slide:nth-child(1) { animation-delay: 0s; }
-            .bg-slide:nth-child(2) { animation-delay: 4s; }
-            .bg-slide:nth-child(3) { animation-delay: 8s; }
-
-            @keyframes imageFade {
-                0% { opacity: 0; }
-                15% { opacity: 1; }  
-                33% { opacity: 1; }  
-                48% { opacity: 0; }  
-                100% { opacity: 0; }
-            }
+@keyframes verticalPan {
+    0%, 10% {
+        /* Holds frozen at the top edge so users can read the header */
+        background-position: top center;
+    }
+    75%, 80% {
+        /* Reaches the bottom floor later, and stays for a much shorter time */
+        background-position: bottom center;
+    }
+    100% {
+        /* Instantly snaps back to the top to restart the downward loop */
+        background-position: top center;
+    }
+}
 
             .intro-box-text {
                 position: relative;
@@ -127,7 +130,20 @@
             width: 100%;
             max-width: 900px;
             min-height: 700px;
-            background-color: var(--dark-blue);
+            background-color: #1c2a21;
+            border-radius: 24px;
+            overflow: visible;
+            box-shadow: 0 10px 55px rgba(0,0,0,0.2);
+            scroll-margin-top: 60px; /* Controls the margin between the top of the window and the prototype box when a button is selected */
+            margin-bottom: 40px;
+        }
+
+        .prototype-container2 {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            min-height: 700px;
+            background-color: #2f2f41;
             border-radius: 24px;
             overflow: visible;
             box-shadow: 0 10px 55px rgba(0,0,0,0.2);
@@ -139,7 +155,7 @@
             display: flex;
             width: 100%;
             max-width: 900px;
-            background-color: var(--dark-blue);
+            background-color: #2f2f41;
             border-radius: 24px;
             overflow: visible;
             box-shadow: 0 10px 55px rgba(0,0,0,0.2);
@@ -165,7 +181,7 @@
         /* Sidebar Styling */
         .sidebar {
             flex: 0 0 220px;
-            background-color: var(--sidebar-blue);
+            background-color: #566e5e;
             color: white;
             position: relative;
             border-radius: 24px 0 0 24px;
@@ -180,7 +196,7 @@
         .sidebar h3 {
             font-size: 18px;
             font-family: sans-serif;
-            color: var(--dark-blue);
+            color: #d1dbd5;
             margin-bottom: 20px;
             padding-left: 10px;
         }
@@ -334,6 +350,7 @@
 
             .intro-box{
                 margin-top: 25px;
+                min-height: 500px;
             }
 
             .intro-box-text {
@@ -345,7 +362,7 @@
                 margin-top: -10px;
             }
             
-            .prototype-container { 
+            .prototype-container, .prototype-container2 { 
                 flex-direction: column;
                 overflow: visible;
                 border-radius: 24px; 
@@ -411,16 +428,13 @@
             .big-box-content { padding: 35px 30px 10px 30px; }
             .description { margin-bottom: 25px; }
         }
+        
 
-        .fade-in { animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-    <div class="intro-box">
-    <div class="bg-slide" style="background-image: url('FGFY/FGFY1.png');"></div>
-    <div class="bg-slide" style="background-image: url('FGFY/FGFY2.png');"></div>
-    <div class="bg-slide" style="background-image: url('FGFY/FGFY3.png');"></div>
+<div class="intro-box">
+    <div class="bg-scroll-canvas" style="background-image: url('FGFY/FGFY1.png');"></div>
 
     <div class="intro-box-text">
         <h1>Food Guide For You</h1>
@@ -452,17 +466,17 @@
             </div>
     </div>
 
-        <div class="paragraph-container" style="background-color: #293d36;">
+        <div class="paragraph-container" style="background-color: #2a384b;">
             <div class="big-box-content">
                 <h2>The idea</h2>
-                <p class="description">Since people wanted information that was concise and specific to their needs and lifestyle, the team decided to create a web tool where users could make their own tip sheets about healthy eating that were tailored to their lifestyle. Besides tips, these tip sheets would also include recipes, videos, and helpful links to Canada’s Food Guide pages that were related to the user’s selected activity. The tips, recipes, and videos could then be further customized to meet the user’s food preferences.</p>
+                <p class="description">Since people wanted information that was concise and specific to their needs and lifestyle, the team decided to create a web tool where users could make their own tip sheets about healthy eating that were tailored to various needs and lifestyles. Besides tips, these tip sheets would also include recipes, videos, and helpful links to Canada’s Food Guide pages that were related to the user’s selected tip topic. The tips, recipes, and videos could then be further customized to meet the user’s food preferences.</p>
     </div>
     </div>
 
 
         <div class="paragraph-intro">
         <h2>The prototype before usability testing</h2>
-        <p>As the prototype designer of the team, my responsibility was to design a <a href="https://www.figma.com/proto/N5sSM2jvsao3VP1Yrvk9ve/Food-guide-for-you--Adults----Pre-testing-and-recommendations?node-id=1-27&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=1%3A27&hotspot-hints=0">Figma prototype</a> for the team’s idea. I collaborated with nutritionists and web writers who created the written content on the tip sheets. The following shows different pages from my prototype before the team conducted usability testing.</p>
+        <p>As the prototype designer of the team, my responsibility was to design a <a href="https://www.figma.com/proto/N5sSM2jvsao3VP1Yrvk9ve/Food-guide-for-you--Adults----Pre-testing-and-recommendations?node-id=1-27&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=1%3A27&hotspot-hints=0">Figma prototype</a> for the team’s idea. I collaborated with nutritionists and web writers who created the written content on the tip sheets. The following designs show different parts of my prototype before the team conducted usability testing.</p>
     </div>
 
     <div class="prototype-container">
@@ -492,7 +506,7 @@
         </main>
     </div>
 
-    <div class="paragraph-container" style="background-color: #293d36;">
+    <div class="paragraph-container" style="background-color: #2a384b;">
         <div class="big-box-content">
             <h2>Usability testing</h2>
             <div class="description">
@@ -533,10 +547,10 @@
     </div>
 
     <!-- Second Prototype Container -->
-<div class="prototype-container">
-    <nav class="sidebar">
+<div class="prototype-container2">
+    <nav class="sidebar" style="background-color: #5a5070;">
         <div class="sidebar-sticky-wrapper">
-            <h3>Design changes</h3>
+            <h3 style="color: #d9d6e1;">Design changes</h3>
             <ul class="month-list">
                 <!-- Include 2 so it knows which container to update -->
                 <li class="month-item active" onclick="updateView('For children', this, 2)">For children</li>
@@ -552,7 +566,7 @@
     <main class="main-content" id="main-content-2">
         <h2 id="view-title-2">For children: more visually engaging</h2>
         <p id="view-desc-2" class="description" style="margin-bottom: 0px;">
-                Children reacted well to the tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults (the only difference being the use of the Kids brand’s green instead of burgundy), that part of the process was not engaging for them.
+                Children reacted well to the final tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults, everything before the final tip sheet was not really engaging for them.
         <br/><br/>
                 I designed a new interface that expanded the use of illustrations and colours beyond the tip sheet and included interactive illustrations when hovering and clicking on buttons.            
             </p>
@@ -564,8 +578,8 @@
     </main>
 </div>
 
-<div class="paragraph-regular" style="margin-top: -20px; margin-bottom: 70px;">
-    <p>After making these improvements in my prototype, I passed my prototype and accompanying notes to the team’s web developer, who will publish Food Guide For You once web development is complete.</p>
+<div class="paragraph-regular" style="margin-top: -20px; margin-bottom: 50px;">
+    <p>After making these improvements to my prototype, I passed my prototype and accompanying notes to the team’s web developer, who will publish Food Guide For You once web development is complete.</p>
 </div>
 
 
@@ -584,7 +598,7 @@
                     "FGFY/LifeStage.png",
                 ],
                 bullets: [
-                    ["Selecting the Children and Teens life stages would lead to pages where the branding is changed to the kids or teens branding."]
+                    ["The selected life stage would narrow down the settings and tip topics so that they were relevant to users in that life stage."]
                 ]
             },
 
@@ -643,8 +657,8 @@
                 bullets: [["This tip sheet is the result of the user selecting \"Adults\" as their life stage, \"Grocery store\" as their setting, and \"Find healthy foods that cost less\" as their tip topic."]],
                     subPages: {
                         "Adults": { img: "FGFY/AdultsTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Adults\" as their life stage, \"Grocery store\" as their setting, and \"Find healthy foods that cost less\" as their tip topic." },
-                        "Teens": { img: "FGFY/TeensTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Teens\" as their life stage, \"Grocery store\" as their setting, and \"Make healthy choices when ordering food\" as their tip topic." },
-                        "Kids": { img: "FGFY/KidsTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Kids\" as their life stage, \"Grocery store\" as their setting, and \"Pack the best school lunch\" as their tip topic." }
+                        "Teens": { img: "FGFY/TeensTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Teens\" as their life stage, \"Eating out\" as their setting, and \"Make healthy choices when ordering food\" as their tip topic." },
+                        "Kids": { img: "FGFY/KidsTipSheet.png", bullet: "This tip sheet is the result of the user selecting \"Kids\" as their life stage, \"School\" as their setting, and \"Pack the best school lunch\" as their tip topic." }
                     }
             },
         };
@@ -654,7 +668,7 @@ const prototypeData2 = {
         title: "For children: more visually engaging",
         description: `
             <p style="margin-top: 0px">
-                Children reacted well to the tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults (the only difference being the use of the Kids brand’s green instead of burgundy), that part of the process was not engaging for them.
+                Children reacted well to the final tip sheet as they liked the illustrations and colours. However, since the process of creating the tip sheet had the same layout as the adults, everything before the final tip sheet was not really engaging for them.
             </p>
             <p style="margin-bottom: -5px">
                 I designed a new interface that expanded the use of illustrations and colours beyond the tip sheet and included interactive illustrations when hovering and clicking on buttons.            
@@ -667,18 +681,19 @@ const prototypeData2 = {
         title: "Picking a group first",
         description: ` 
             <p style="margin-top: 0px">
-                There was some confusion about the previous way of organizing tip topics by “Life stage” and “Setting” because the term “Life stage” was not always clear for users. Some thought the term “Age group” was better. 
+                There was some confusion about the term “Life stage”, especially from children who were not sure what the term meant. Some adults thought that the term “Age group” would be better. 
             </p>
             <ul>
             <li style="margin-bottom: 15px">
-                My team and I had discussed this before,but we specifically chose “Life stage” since there is no specific age group for someone to be a parent.
+                My team and I had discussed using “Age group” before, but we specifically chose “Life stage” since there is no specific age group for someone to be a parent.
             </li>
             <li>
-                However, since there is an overlap of someone being a parent and another life stage, parents were not always sure which life stage to select.
+                However, since there is an overlap of someone being a parent and another life stage, during usability testing, some parents were not sure if they should select "Parents", "Adults", or "Older adults".
             </li>
             </ul>
             <p style="margin-bottom: -5px">
-                My solution to this problem was to create a new page with only 3 groups: Children, Teens, and Adults. This way, parents would select “Adults” instead of having to choose between "Adults" and “Parents”. Then, the information that was previously available under “Parents” would be organized into new categories. More details about these categories can be found in the "New organization" section.
+                My solution to this problem was to create a new page with only 3 groups: "Adults", 
+                "Teens", and "Kids". This way, users would not have two relevant groups that applied to them. Then, the information that was previously available under “Parents” would be organized into a new "Involving kids" category. (More details about this can be found in the "New organization" section.) Since the content under “Older adults” overlapped with the content under “Adults”, the two groups were combined to reduce duplicate information and confusion.
             </p>
         `,
         images: ["FGFY/PickGroup.png"],
@@ -688,33 +703,33 @@ const prototypeData2 = {
         title: "New landing page",
         description: `
             <p style="margin-top: 0px">
-                In the previous design, users thought that the “Healthy Eating Tips”, “Recipes” and “Videos” images were clickable and would lead them to a page about that. However, they were not clickable and only there to represent the content that the tool would provide. Also due to varying screen sizes, the “Start” button did not always appear above the fold, causing it to go unnoticed by some users until they scrolled down.
+                In the previous design, users thought that the “Healthy Eating Tips”, “Recipes” and “Videos” images were clickable and would lead them to a page with those resources. However, they were not clickable and were only there to represent the content that the tool would provide. Also due to varying computer screen sizes, the “Start” button did not always appear above the fold, causing it to go unnoticed by some users until they scrolled down.
             </p>
             <p>
-                I changed the “Start” button to a much larger “Create your tip sheet now” button which also includes an image due to the tendency of users to click on images with the expectation that it would lead them to a new page. I also used Canada’s Food Guide’s burgundy brand colour for colour contrast to make the button stand out from the rest of the page.
+                I changed the “Start” button to a much larger “Create your tip sheet now” button which also includes an image due to the tendency of users to click on images with the expectation that it would lead them to a new page. I used colour contrast to make the burgundy button stand out from the rest of the beige and white page. The new design presents the information in one horizontal section to ensure that it appears above the fold.
             </p>
             <p style="margin-bottom: -5px">
                 I also changed the instructions for the 3 steps due to the new organization of tip topics that I created based on usability testing feedback.
             </p>
         `,
-        images: ["FGFY/NewLanding.png"],
-        bullets: [[]]
+        images: ["FGFY/NewLanding.png","FGFY/NewLandingTeens.png", "FGFY/NewLandingKids.png"],
+        bullets: [["The landing page for adults"], ["The landing page for teens: The team had discussed plans to have a section on the website dedicated to teens. This landing page could be linked to that section, allowing the user to skip the page where they pick a group."], ["The landing page for kids: The team had discussed similar plans to have a section on the website dedicated to kids where this landing page could be linked."]]
     },
     "New organization": {
         title: "New organization",
         description: `
             <p style="margin-top: 0px">
-            There is also an overlap of the home setting and other settings for food preparation. While someone may be looking for meals to bring to work or school, they often prepare these meals at home.
+            Besides the overlap of different life stages, there was also an overlap of the home setting and other settings for topics about food preparation. While someone may be looking for meals to bring to work or school, they often prepare these meals at home.
             <ul>
-                <li>While I could crosslink those tip topics in both home and the other setting, this would make the list of topics under home very long.</li>
+                <li>While I could crosslink those tip topics in both "Home" and the other setting, this would make the list of topics under "Home" very long.</li>
             </ul>
             </p>
             <p>
-            There is also an overlap of the home setting and other settings for food preparation. While someone may be looking for meals to bring to work or school, they often prepare these meals at home.
-            <ul>
-                <li style="margin-bottom: 15px">I sorted tip topics by food-related tasks: choosing food and drinks, eating and healthy habits, making meals, and involving kids.</li>
-                <li style="margin-bottom: -15px">By organizing the tip topics based on activities, this removed the problems due to the overlap of different life stages and settings.</li>
-            </ul>
+            As a result, I changed the organization to be more focused on the tip topic’s activity.
+                <ul>
+                <li style="margin-bottom: 15px">I sorted tip topics by food-related tasks: "Choosing food and drinks", "Eating and healthy habits", "Making meals", and "Involving kids".</li>
+                <li style="margin-bottom: 15px">By organizing the tip topics based on activities, this removed the problems with the overlap of different life stages and settings. It also helped users who use the tool with a specific task in mind find a relevant tip topic more easily.</li>
+                <li style="margin-bottom: -15px">Since the information previously under "Parents" had tips about involving kids in food-related activities, I created a new "Involving kids" category for those tips. This allowed me to remove the "Parents" life stage and reduce confusion.</li>
             </p>
         `,
         images: ["FGFY/NewOrganization.mp4"],
@@ -724,13 +739,13 @@ const prototypeData2 = {
         title: "Customization",
         description: `
             <p style="margin-top: 0px">
-            While some users thought it made sense to customize the tip sheet before seeing it in the previous design, others wanted to view the tip sheet first before deciding if they wanted to customize it or not.
+            While some users thought that it made sense to customize the tip sheet before seeing it in the previous design, others wanted to view the tip sheet first before deciding if they wanted to customize it or not.
             <ul>
                 <li>
-                    The choice of the Yes and No options was meant to accommodate this difference in opinions which I expected. However, giving users a choice actually caused more confusion.
+                    The choice between the "Yes" or "No" option was meant to accommodate this difference in opinions which I expected. However, giving users a choice actually caused more confusion.
                 </li>
                 <li>
-                    This page received mixed feedback depending on whether the user actually read the text on the page. Since some users tend to scan text rather than read it, some users clicked a button without completely understanding what to expect on the next page, which caused confusion.
+                    That page received mixed feedback depending on whether the user actually read the text on the page. Since some users tend to scan text rather than read it, some users clicked a button without completely understanding what to expect on the next page, which caused confusion.
                 </li>
             </ul>
             </p>
@@ -739,7 +754,7 @@ const prototypeData2 = {
             </p>
         `,
         images: ["FGFY/Customization.mp4"],
-        bullets: [["This is the result from the previous No option. I did not choose the result from the Yes option as some users said that if they wanted to get tips quickly, they would not read through the long list of 10+ tips that they could choose from to customize their tip sheet."]]
+        bullets: [["Only keeping the result from the previous \"No\" option: I did not choose the result from the \"Yes\" option as some users said that if they wanted to get tips quickly, they would not read through the long list of tips that they could choose from to customize their tip sheet."]]
     },
     "More recipes": {
         title: "More recipes",

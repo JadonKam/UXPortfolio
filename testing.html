@@ -1,0 +1,77 @@
+<style>
+.intro-box {
+    width: 100%;
+    max-width: 900px;
+    height: 500px; /* Locks the window viewport size */
+    position: relative;
+    background-color: #14181c; 
+    border-radius: 24px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.intro-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(20, 24, 28, 0.4), rgba(20, 24, 28, 0.95));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bg-scroll-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Matches container height */
+    z-index: 0;
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    /* 20s loop */
+    animation: verticalPan 20s ease-in-out infinite;
+}
+
+.intro-box-text {
+    position: relative;
+    z-index: 2; 
+    max-width: 600px;
+}
+
+/* Mobile responsive adjustments */
+@keyframes verticalPan {
+    0%, 10% {
+        /* Holds frozen at the top edge so users can read the header */
+        background-position: top center;
+    }
+    75%, 80% {
+        /* Reaches the bottom floor later, and stays for a much shorter time */
+        background-position: bottom center;
+    }
+    100% {
+        /* Instantly snaps back to the top to restart the downward loop */
+        background-position: top center;
+    }
+}
+</style>
+
+<div class="intro-box">
+    <!-- Restored back to your clean, single-element background div layer -->
+    <div class="bg-scroll-canvas" style="background-image: url('FGFY/FGFY1.png');"></div>
+
+    <div class="intro-box-text">
+        <h1>Food Guide For You</h1>
+        <div class="intro-description">
+            <div>A Canada’s Food Guide tool to help people find practical healthy eating tips that are tailored to their needs and lifestyle</div>
+        </div>
+    </div>
+</div>
